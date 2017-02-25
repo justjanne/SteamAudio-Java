@@ -1,0 +1,5 @@
+rootProject.name = 'steamaudio'
+include 'lib'
+include 'demo'
+include 'native'
+
