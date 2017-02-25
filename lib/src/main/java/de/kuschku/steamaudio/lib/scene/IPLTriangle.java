@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.scene;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * a counter-clockwise winding order. This means that when looking at the triangle such that the normal is pointing
  * towards you, the vertices are specified in counter-clockwise order.
  */
-public class IPLTriangle extends Structure {
+public class IPLTriangle extends Structure implements SmartStructure<IPLTriangle> {
     /**
      * Indices of the three vertices of this triangle. Each triangle must be specified using three vertices; triangle
      * strip or fan representations are not supported.

@@ -5,8 +5,6 @@ import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import de.kuschku.steamaudio.lib.geometry.IPLSphere;
 
-import java.nio.ByteBuffer;
-
 @SuppressWarnings("unused")
 public interface BakingApi extends Library {
     static BakingApi getInstance() {
@@ -43,9 +41,8 @@ public interface BakingApi extends Library {
      * @param progressCallback Pointer to a function that reports the percentage of this function's work that has been
      *                         completed. May be {@code null}.
      */
-    void iplBakePropagation(Pointer environment, Pointer probeBox, IPLSphere.ByValue sourceInfluence,
-                            ByteBuffer sourceName, IPLBakingSettings.ByValue bakingSettings,
-                            IPLBakeProgressCallback progressCallback);
+    void iplBakePropagation(Pointer environment, Pointer probeBox, IPLSphere.ByValue sourceInfluence, String sourceName,
+                            IPLBakingSettings.ByValue bakingSettings, IPLBakeProgressCallback progressCallback);
 
     /**
      * Bakes propagation effects from all probes in a Probe Box to a specified listener. Listeners are defined solely by
@@ -63,7 +60,7 @@ public interface BakingApi extends Library {
      *                          completed. May be {@code null}.
      */
     void iplBakeStaticListener(Pointer environment, Pointer probeBox, IPLSphere.ByValue listenerInfluence,
-                               ByteBuffer listenerName, IPLBakingSettings.ByValue bakingSettings,
+                               String listenerName, IPLBakingSettings.ByValue bakingSettings,
                                IPLBakeProgressCallback progressCallback);
 
     /**
@@ -81,7 +78,7 @@ public interface BakingApi extends Library {
      * @param probeBox   Handle to a Probe Box object.
      * @param sourceName Name of the source whose baked data is to be deleted.
      */
-    void iplDeleteBakedDataByName(Pointer probeBox, ByteBuffer sourceName);
+    void iplDeleteBakedDataByName(Pointer probeBox, String sourceName);
 
     /**
      * Returns the size (in bytes) of the baked data stored in a Probe Box corresponding to a given source. This is
@@ -92,5 +89,5 @@ public interface BakingApi extends Library {
      *
      * @return Size (in bytes) of the baked data stored in the Probe Box corresponding to the named source.
      */
-    int iplGetBakedDataSizeByName(Pointer probeBox, ByteBuffer sourceName);
+    int iplGetBakedDataSizeByName(Pointer probeBox, String sourceName);
 }

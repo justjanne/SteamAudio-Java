@@ -3,6 +3,7 @@ package de.kuschku.steamaudio.lib.audiobuffer;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * However, Phonon supports many different multi-channel and Ambisonics formats, and the {@link IPLAudioFormat} tells
  * Phonon how to interpret a buffer of audio data.
  */
-public class IPLAudioFormat extends Structure {
+public class IPLAudioFormat extends Structure implements SmartStructure<IPLAudioFormat> {
     /**
      * Indicates whether or not the audio should be interpreted as Ambisonics data.
      */

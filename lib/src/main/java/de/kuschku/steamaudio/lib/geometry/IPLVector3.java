@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.geometry;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  * y-axis pointing up, and the z-axis pointing ahead. Position and direction data obtained from a game engine or audio
  * engine must be properly transformed before being passed to any Phonon API function.
  */
-public class IPLVector3 extends Structure {
+public class IPLVector3 extends Structure implements SmartStructure<IPLVector3> {
     /**
      * The x-coordinate.
      */

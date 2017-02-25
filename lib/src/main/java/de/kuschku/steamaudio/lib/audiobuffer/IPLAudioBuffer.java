@@ -4,6 +4,7 @@ import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import com.sun.jna.ptr.FloatByReference;
 import com.sun.jna.ptr.PointerByReference;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * A buffer containing audio data. All audio data passed to or from Phonon must be packaged in {@link #IPLAudioBuffer}
  * objects, which describe the format and size of the audio data.
  */
-public class IPLAudioBuffer extends Structure {
+public class IPLAudioBuffer extends Structure implements SmartStructure<IPLAudioBuffer> {
     /**
      * The format of the audio data.
      */

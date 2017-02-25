@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.rendersettings;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  * engine need to know how the audio processing pipeline (i.e., your audio engine) applies DSP effects to audio data.
  * This structure describes the key parameters.
  */
-public class IPLRenderingSettings extends Structure {
+public class IPLRenderingSettings extends Structure implements SmartStructure<IPLRenderingSettings> {
     /**
      * The sampling rate (in Hz) of any audio to be processed by Phonon. <b>All audio that is passed to Phonon must use
      * the same sampling rate.</b> Phonon will output audio at the same sampling rate as its input; no sampling rate

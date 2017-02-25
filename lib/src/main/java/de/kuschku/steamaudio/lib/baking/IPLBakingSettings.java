@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.baking;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Specifies the kind of acoustic responses to save in the baked data.
  */
-public class IPLBakingSettings extends Structure {
+public class IPLBakingSettings extends Structure implements SmartStructure<IPLBakingSettings> {
     /**
      * Enables the generation of I3DL2-compliant parametric reverb. This is most suited for calculating reverb in
      * relatively enclosed spaces. It is less suitable for open spaces, or source-to-listener propagation. It consumes

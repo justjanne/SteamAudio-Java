@@ -10,8 +10,6 @@ import de.kuschku.steamaudio.lib.geometry.IPLVector3;
 import de.kuschku.steamaudio.lib.simsettings.IPLSimulationType;
 import de.kuschku.steamaudio.lib.util.IPLerror;
 
-import java.nio.ByteBuffer;
-
 @SuppressWarnings("unused")
 public interface ConvEffectApi extends Library {
     static ConvEffectApi getInstance() {
@@ -29,8 +27,7 @@ public interface ConvEffectApi extends Library {
      *                       of the Convolution Effect is used to look up the appropriate information from the baked
      *                       data. Multiple Convolution Effect objects may be created with the same name; in that case
      *                       they will use the same baked data. If you want this Convolution Effect to be used to
-     *                       render
-     *                       baked reverb, pass \c "__reverb__" as the name.
+     *                       render baked reverb, pass \c "__reverb__" as the name.
      * @param simulationType Whether this Convolution Effect object should use baked data or real-time simulation.
      * @param inputFormat    Format of all audio buffers passed as input to {@link ConvEffectApi#iplSetDryAudioForConvolutionEffect}.
      * @param outputFormat   Format of all output audio buffers passed to {@link ConvEffectApi#iplGetWetAudioForConvolutionEffect}.
@@ -38,7 +35,7 @@ public interface ConvEffectApi extends Library {
      *
      * @return Status code indicating whether or not the operation succeeded.
      */
-    IPLerror iplCreateConvolutionEffect(Pointer renderer, ByteBuffer name, IPLSimulationType simulationType,
+    IPLerror iplCreateConvolutionEffect(Pointer renderer, String name, IPLSimulationType simulationType,
                                         IPLAudioFormat.ByValue inputFormat, IPLAudioFormat.ByValue outputFormat,
                                         PointerByReference effect);
 
@@ -57,7 +54,7 @@ public interface ConvEffectApi extends Library {
      * @param effect Handle to a Convolution Effect object.
      * @param name   The new name of the Convolution Effect object.
      */
-    void iplSetConvolutionEffectName(Pointer effect, ByteBuffer name);
+    void iplSetConvolutionEffectName(Pointer effect, String name);
 
     /**
      * Specifies a frame of dry audio for a Convolution Effect object. This is the audio data to which sound propagation

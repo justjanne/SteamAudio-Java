@@ -9,7 +9,6 @@ import de.kuschku.steamaudio.lib.geometry.IPLVector3;
 import de.kuschku.steamaudio.lib.simsettings.IPLSimulationSettings;
 import de.kuschku.steamaudio.lib.util.IPLerror;
 
-import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 @SuppressWarnings("unused")
@@ -85,7 +84,7 @@ public interface SceneApi extends Library {
      *
      * @return Status code indicating whether or not the operation succeeded.
      */
-    int iplCreateStaticMesh(Pointer scene, int numVertices, int numTriangles, PointerByReference staticMesh);
+    IPLerror iplCreateStaticMesh(Pointer scene, int numVertices, int numTriangles, PointerByReference staticMesh);
 
     /**
      * Destroys a Static Mesh object. If any other API objects are still referencing the Static Mesh object, it will not
@@ -157,7 +156,7 @@ public interface SceneApi extends Library {
      *
      * @return Status code indicating whether or not the operation succeeded.
      */
-    IPLerror iplSaveFinalizedScene(Pointer scene, ByteBuffer fileName);
+    IPLerror iplSaveFinalizedScene(Pointer scene, String fileName);
 
     /**
      * Creates a Scene object based on data stored in a file on disk. After this function is called, it is not necessary
@@ -180,7 +179,7 @@ public interface SceneApi extends Library {
      * @return Status code indicating whether or not the operation succeeded.
      */
     IPLerror iplLoadFinalizedScene(IPLContext.ByValue context, IPLSimulationSettings.ByValue simulationSettings,
-                                   ByteBuffer fileName, Pointer computeDevice,
+                                   String fileName, Pointer computeDevice,
                                    IPLLoadSceneProgressCallback progressCallback, PointerByReference scene);
 
     /**
@@ -193,5 +192,5 @@ public interface SceneApi extends Library {
      * @param scene        Handle to the Scene object.
      * @param fileBaseName Absolute or relative path to the OBJ file to generate.
      */
-    void iplDumpSceneToObjFile(Pointer scene, ByteBuffer fileBaseName);
+    void iplDumpSceneToObjFile(Pointer scene, String fileBaseName);
 }

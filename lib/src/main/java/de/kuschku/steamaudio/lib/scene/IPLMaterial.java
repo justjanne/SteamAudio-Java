@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.scene;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * The acoustic properties of a surface. You can specify the acoustic material properties of each triangle, although
  * typically many triangles will share a common material.
  */
-public class IPLMaterial extends Structure {
+public class IPLMaterial extends Structure implements SmartStructure<IPLMaterial> {
     /**
      * Fraction of sound energy absorbed at low frequencies. Between 0.0 and 1.0.
      */

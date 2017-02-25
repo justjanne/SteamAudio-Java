@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.geometry;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * A sphere. Spheres are used to define a region of influence around a point.
  */
-public class IPLSphere extends Structure {
+public class IPLSphere extends Structure implements SmartStructure<IPLSphere> {
     /**
      * The center.
      */

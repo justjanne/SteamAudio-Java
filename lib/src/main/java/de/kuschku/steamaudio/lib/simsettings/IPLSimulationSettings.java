@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.simsettings;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Configures the complexity of the simulation. You can fine-tune these values to arrive at a suitable balance between
  * performance, memory usage, and acoustic detail.
  */
-public class IPLSimulationSettings extends Structure {
+public class IPLSimulationSettings extends Structure implements SmartStructure<IPLSimulationSettings> {
     /**
      * The ray tracer to use for simulation. {@link IPLSceneType}.
      */

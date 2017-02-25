@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.geometry;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * An axis-aligned box. Axis-aligned boxes are used to specify a volume of 3D space.
  */
-public class IPLBox extends Structure {
+public class IPLBox extends Structure implements SmartStructure<IPLBox> {
 
     /**
      * The minimum coordinates of any vertex.

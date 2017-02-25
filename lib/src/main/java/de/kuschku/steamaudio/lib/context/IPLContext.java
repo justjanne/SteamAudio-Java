@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.context;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * The Context object. Any of the data members may be {@code null}, in which case Phonon will use a built-in default
  * behavior.
  */
-public class IPLContext extends Structure {
+public class IPLContext extends Structure implements SmartStructure<IPLContext> {
     /**
      * Callback for logging messages.
      */

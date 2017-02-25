@@ -27,9 +27,8 @@ public interface BinauralRendererApi extends Library {
      *                          parameters. These properties must remain constant throughout the lifetime of your
      *                          application.
      * @param hrtfData          Pointer to a byte array containing HRTF data. For most situations, set this parameter
-     *                          to
-     *                          {@code null}; Phonon will use its built-in HRTF data. If you want to use customized or
-     *                          personalized HRTF data, contact Impulsonic for further information.
+     *                          to {@code null}; Phonon will use its built-in HRTF data. If you want to use customized
+     *                          or personalized HRTF data, contact Impulsonic for further information.
      * @param renderer          [out] Handle to the created Binaural Renderer object.
      *
      * @return Status code indicating whether or not the operation succeeded.

@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.probes;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Parameters that specify how probes should be created by {@link ProbesApi#iplCreateProbeBox}.
  */
-public class IPLProbePlacementParams extends Structure {
+public class IPLProbePlacementParams extends Structure implements SmartStructure<IPLProbePlacementParams> {
     /**
      * The placement algorithm to use for creating probes.
      */

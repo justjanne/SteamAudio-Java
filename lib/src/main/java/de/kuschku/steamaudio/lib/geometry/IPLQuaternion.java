@@ -2,6 +2,7 @@ package de.kuschku.steamaudio.lib.geometry;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import de.kuschku.steamaudio.lib.util.SmartStructure;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * A unit-length quaternion. Quaternions are used to represent a rotation or orientation.
  */
-public class IPLQuaternion extends Structure {
+public class IPLQuaternion extends Structure implements SmartStructure<IPLQuaternion> {
     /**
      * The x-coordinate of the vector part.
      */
