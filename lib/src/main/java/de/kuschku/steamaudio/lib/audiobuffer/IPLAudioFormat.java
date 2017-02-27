@@ -1,99 +1,112 @@
 package de.kuschku.steamaudio.lib.audiobuffer;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * The format of an audio buffer. Whenever you pass audio data to or from Phonon, you must describe the format in which
- * the audio is encoded. **Phonon only supports uncompressed PCM wave data, stored in 32-bit floating point format**.
- * However, Phonon supports many different multi-channel and Ambisonics formats, and the {@link IPLAudioFormat} tells
- * Phonon how to interpret a buffer of audio data.
- */
-public class IPLAudioFormat extends Structure implements SmartStructure<IPLAudioFormat> {
-    /**
-     * Indicates whether or not the audio should be interpreted as Ambisonics data.
-     */
-    public IPLChannelLayoutType channelLayoutType;
-
-    /**
-     * Specifies the speaker configuration used for multi-channel, speaker-based audio data. Ignored if {@link
-     * #channelLayoutType} is {@link IPLChannelLayoutType.Enum#IPL_CHANNELLAYOUTTYPE_AMBISONICS}.
-     */
-    public IPLChannelLayout channelLayout;
-
-    /**
-     * The number of channels in the audio data. Must be specified regardless of the value of {@link
-     * #channelLayoutType}.
-     */
-    public int numSpeakers;
-
-    /**
-     * An array of {@link IPLVector3} objects indicating the direction of each speaker relative to the user. Can be
-     * {@code null}. Only used if {@link #channelLayoutType} is {@link IPLChannelLayoutType.Enum#IPL_CHANNELLAYOUTTYPE_SPEAKERS}
-     * and {@link #channelLayout} is {@link IPLChannelLayout.Enum#IPL_CHANNELLAYOUT_CUSTOM}.
-     */
-    public IPLVector3.ByReference speakerDirections;
-
-    /**
-     * The order of Ambisonics to use. Must be 0 or greater. Ignored if {@link #channelLayoutType} is {@link
-     * IPLChannelLayoutType.Enum#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
-     */
-    public int ambisonicsOrder;
-
-    /**
-     * The ordering of Ambisonics channels within the data. Ignored if {@link #channelLayoutType} is {@link
-     * IPLChannelLayoutType.Enum#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
-     */
-    public IPLAmbisonicsOrdering ambisonicsOrdering;
-
-    /**
-     * The normalization scheme used for Ambisonics data. Ignored if {@link #channelLayoutType} is {@link
-     * IPLChannelLayoutType.Enum#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
-     */
-    public IPLAmbisonicsNormalization ambisonicsNormalization;
-
-    /**
-     * Whether the audio data is interleaved or deinterleaved.
-     */
-    public IPLChannelOrder channelOrder;
+@Library("steamaudio")
+public class IPLAudioFormat extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLAudioFormat() {
         super();
     }
 
-    public IPLAudioFormat(IPLChannelLayoutType channelLayoutType, IPLChannelLayout channelLayout, int numSpeakers,
-                          IPLVector3.ByReference speakerDirections, int ambisonicsOrder,
-                          IPLAmbisonicsOrdering ambisonicsOrdering, IPLAmbisonicsNormalization ambisonicsNormalization,
-                          IPLChannelOrder channelOrder) {
-        super();
-        this.channelLayoutType = channelLayoutType;
-        this.channelLayout = channelLayout;
-        this.numSpeakers = numSpeakers;
-        this.speakerDirections = speakerDirections;
-        this.ambisonicsOrder = ambisonicsOrder;
-        this.ambisonicsOrdering = ambisonicsOrdering;
-        this.ambisonicsNormalization = ambisonicsNormalization;
-        this.channelOrder = channelOrder;
+    public IPLAudioFormat(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLAudioFormat(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public IntValuedEnum<IPLChannelLayoutType> channelLayoutType() {
+        return this.io.getEnumField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays
-                .asList("channelLayoutType", "channelLayout", "numSpeakers", "speakerDirections", "ambisonicsOrder",
-                        "ambisonicsOrdering", "ambisonicsNormalization", "channelOrder");
+    @Field(0)
+    public IPLAudioFormat channelLayoutType(IntValuedEnum<IPLChannelLayoutType> channelLayoutType) {
+        this.io.setEnumField(this, 0, channelLayoutType);
+        return this;
     }
 
-    public static class ByReference extends IPLAudioFormat implements Structure.ByReference {
+    @Field(1)
+    public IntValuedEnum<IPLChannelLayout> channelLayout() {
+        return this.io.getEnumField(this, 1);
     }
 
-    public static class ByValue extends IPLAudioFormat implements Structure.ByValue {
+    @Field(1)
+    public IPLAudioFormat channelLayout(IntValuedEnum<IPLChannelLayout> channelLayout) {
+        this.io.setEnumField(this, 1, channelLayout);
+        return this;
+    }
+
+    @Field(2)
+    public int numSpeakers() {
+        return this.io.getIntField(this, 2);
+    }
+
+    @Field(2)
+    public IPLAudioFormat numSpeakers(int numSpeakers) {
+        this.io.setIntField(this, 2, numSpeakers);
+        return this;
+    }
+
+    @Field(3)
+    public Pointer<IPLVector3> speakerDirections() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    public IPLAudioFormat speakerDirections(Pointer<IPLVector3> speakerDirections) {
+        this.io.setPointerField(this, 3, speakerDirections);
+        return this;
+    }
+
+    @Field(4)
+    public int ambisonicsOrder() {
+        return this.io.getIntField(this, 4);
+    }
+
+    @Field(4)
+    public IPLAudioFormat ambisonicsOrder(int ambisonicsOrder) {
+        this.io.setIntField(this, 4, ambisonicsOrder);
+        return this;
+    }
+
+    @Field(5)
+    public IntValuedEnum<IPLAmbisonicsOrdering> ambisonicsOrdering() {
+        return this.io.getEnumField(this, 5);
+    }
+
+    @Field(5)
+    public IPLAudioFormat ambisonicsOrdering(IntValuedEnum<IPLAmbisonicsOrdering> ambisonicsOrdering) {
+        this.io.setEnumField(this, 5, ambisonicsOrdering);
+        return this;
+    }
+
+    @Field(6)
+    public IntValuedEnum<IPLAmbisonicsNormalization> ambisonicsNormalization() {
+        return this.io.getEnumField(this, 6);
+    }
+
+    @Field(6)
+    public IPLAudioFormat ambisonicsNormalization(IntValuedEnum<IPLAmbisonicsNormalization> ambisonicsNormalization) {
+        this.io.setEnumField(this, 6, ambisonicsNormalization);
+        return this;
+    }
+
+    @Field(7)
+    public IntValuedEnum<IPLChannelOrder> channelOrder() {
+        return this.io.getEnumField(this, 7);
+    }
+
+    @Field(7)
+    public IPLAudioFormat channelOrder(IntValuedEnum<IPLChannelOrder> channelOrder) {
+        this.io.setEnumField(this, 7, channelOrder);
+        return this;
     }
 }

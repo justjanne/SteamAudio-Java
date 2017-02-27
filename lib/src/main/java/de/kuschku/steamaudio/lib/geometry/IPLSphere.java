@@ -1,47 +1,44 @@
 package de.kuschku.steamaudio.lib.geometry;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * A sphere. Spheres are used to define a region of influence around a point.
- */
-public class IPLSphere extends Structure implements SmartStructure<IPLSphere> {
-    /**
-     * The center.
-     */
-    public IPLVector3 center;
-
-    /**
-     * The radius.
-     */
-    public float radius;
+@Library("steamaudio")
+public class IPLSphere extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLSphere() {
         super();
     }
 
-    public IPLSphere(IPLVector3 center, float radius) {
-        super();
-        this.center = center;
-        this.radius = radius;
+    public IPLSphere(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLSphere(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public IPLVector3 center() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("center", "radius");
+    @Field(0)
+    public IPLSphere center(IPLVector3 center) {
+        this.io.setNativeObjectField(this, 0, center);
+        return this;
     }
 
-    public static class ByReference extends IPLSphere implements Structure.ByReference {
+    @Field(1)
+    public float radius() {
+        return this.io.getFloatField(this, 1);
     }
 
-    public static class ByValue extends IPLSphere implements Structure.ByValue {
+    @Field(1)
+    public IPLSphere radius(float radius) {
+        this.io.setFloatField(this, 1, radius);
+        return this;
     }
 }

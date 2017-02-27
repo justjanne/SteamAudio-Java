@@ -1,48 +1,44 @@
 package de.kuschku.steamaudio.lib.geometry;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * An axis-aligned box. Axis-aligned boxes are used to specify a volume of 3D space.
- */
-public class IPLBox extends Structure implements SmartStructure<IPLBox> {
-
-    /**
-     * The minimum coordinates of any vertex.
-     */
-    public IPLVector3 minCoordinates;
-
-    /**
-     * The maximum coordinates of any vertex.
-     */
-    public IPLVector3 maxCoordinates;
+@Library("steamaudio")
+public class IPLBox extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLBox() {
         super();
     }
 
-    public IPLBox(IPLVector3 minCoordinates, IPLVector3 maxCoordinates) {
-        super();
-        this.minCoordinates = minCoordinates;
-        this.maxCoordinates = maxCoordinates;
+    public IPLBox(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLBox(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public IPLVector3 minCoordinates() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("minCoordinates", "maxCoordinates");
+    @Field(0)
+    public IPLBox minCoordinates(IPLVector3 minCoordinates) {
+        this.io.setNativeObjectField(this, 0, minCoordinates);
+        return this;
     }
 
-    public static class ByReference extends IPLBox implements Structure.ByReference {
+    @Field(1)
+    public IPLVector3 maxCoordinates() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
-    public static class ByValue extends IPLBox implements Structure.ByValue {
+    @Field(1)
+    public IPLBox maxCoordinates(IPLVector3 maxCoordinates) {
+        this.io.setNativeObjectField(this, 1, maxCoordinates);
+        return this;
     }
 }

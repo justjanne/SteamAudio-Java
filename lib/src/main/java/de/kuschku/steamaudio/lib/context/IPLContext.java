@@ -1,54 +1,55 @@
 package de.kuschku.steamaudio.lib.context;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * The Context object. Any of the data members may be {@code null}, in which case Phonon will use a built-in default
- * behavior.
- */
-public class IPLContext extends Structure implements SmartStructure<IPLContext> {
-    /**
-     * Callback for logging messages.
-     */
-    public IPLLogFunction logCallback;
-
-    /**
-     * Callback for allocating memory.
-     */
-    public IPLAllocateFunction allocateCallback;
-
-    /**
-     * Callback for freeing memory.
-     */
-    public IPLFreeFunction freeCallback;
+@Library("steamaudio")
+public class IPLContext extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLContext() {
         super();
     }
 
-    public IPLContext(IPLLogFunction logCallback, IPLAllocateFunction allocateCallback, IPLFreeFunction freeCallback) {
-        super();
-        this.logCallback = logCallback;
-        this.allocateCallback = allocateCallback;
-        this.freeCallback = freeCallback;
+    public IPLContext(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLContext(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public Pointer<IPLLogFunction> logCallback() {
+        return this.io.getPointerField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("logCallback", "allocateCallback", "freeCallback");
+    @Field(0)
+    public IPLContext logCallback(Pointer<IPLLogFunction> logCallback) {
+        this.io.setPointerField(this, 0, logCallback);
+        return this;
     }
 
-    public static class ByReference extends IPLContext implements Structure.ByReference {
+    @Field(1)
+    public Pointer<IPLAllocateFunction> allocateCallback() {
+        return this.io.getPointerField(this, 1);
     }
 
-    public static class ByValue extends IPLContext implements Structure.ByValue {
+    @Field(1)
+    public IPLContext allocateCallback(Pointer<IPLAllocateFunction> allocateCallback) {
+        this.io.setPointerField(this, 1, allocateCallback);
+        return this;
+    }
+
+    @Field(2)
+    public Pointer<IPLFreeFunction> freeCallback() {
+        return this.io.getPointerField(this, 2);
+    }
+
+    @Field(2)
+    public IPLContext freeCallback(Pointer<IPLFreeFunction> freeCallback) {
+        this.io.setPointerField(this, 2, freeCallback);
+        return this;
     }
 }

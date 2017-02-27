@@ -1,18 +1,17 @@
 package de.kuschku.steamaudio.lib.context;
 
-import com.ochafik.lang.jnaerator.runtime.NativeSize;
-import com.sun.jna.Callback;
-import com.sun.jna.Pointer;
+import org.bridj.Callback;
+import org.bridj.Pointer;
+import org.bridj.ann.Ptr;
 
-public interface IPLAllocateFunction extends Callback {
-    /**
-     * Prototype of a callback that allocates memory. This is usually specified to let Phonon use a custom memory
-     * allocator. The default behavior is to use the OS-dependent aligned version of <code>malloc</code>.
-     *
-     * @param size      The number of bytes to allocate.
-     * @param alignment The alignment (in bytes) of the start address of the allocated memory.
-     *
-     * @return Pointer to the allocated block of memory, or {@code null} if allocation failed.
-     */
-    Pointer apply(NativeSize size, NativeSize alignment);
+@SuppressWarnings("deprecation")
+public abstract class IPLAllocateFunction extends Callback<IPLAllocateFunction> {
+    public Pointer<?> apply(@Ptr long IPLsize1, @Ptr long IPLsize2) {
+        return Pointer.pointerToAddress(apply$2(IPLsize1, IPLsize2));
+    }
+
+    @Ptr
+    public long apply$2(@Ptr long IPLsize1, @Ptr long IPLsize2) {
+        return Pointer.getPeer(apply(IPLsize1, IPLsize2));
+    }
 }

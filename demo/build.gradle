@@ -1,8 +1,10 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
 group 'de.kuschku'
 version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -10,10 +12,36 @@ mainClassName = "de.kuschku.steamaudio.demo.Main"
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'junit:junit:4.11'
     compile project(':lib')
     compile project(':native')
+
+    compile 'de.jarnbjo:j-ogg-all:1.0.0'
+
+    compile 'org.joml:joml:1.9.2'
+
+    compile 'org.l33tlabs.twl:pngdecoder:1.0'
+
+    compile 'org.lwjgl:lwjgl:3.1.1'
+    compile 'org.lwjgl:lwjgl:3.1.1:natives-linux'
+    compile 'org.lwjgl:lwjgl-glfw:3.1.1'
+    compile 'org.lwjgl:lwjgl-glfw:3.1.1:natives-linux'
+    compile 'org.lwjgl:lwjgl-opengl:3.1.1'
+    compile 'org.lwjgl:lwjgl-opengl:3.1.1:natives-linux'
+    compile 'org.lwjgl:lwjgl-openal:3.1.1'
+    compile 'org.lwjgl:lwjgl-openal:3.1.1:natives-linux'
+    compile 'org.lwjgl:lwjgl-stb:3.1.1'
+    compile 'org.lwjgl:lwjgl-stb:3.1.1:natives-linux'
+    compile 'org.lwjgl:lwjgl-nanovg:3.1.1'
+    compile 'org.lwjgl:lwjgl-nanovg:3.1.1:natives-linux'
+
+    compile 'org.apache.logging.log4j:log4j-api:2.8'
+    compile 'org.apache.logging.log4j:log4j-core:2.8'
+    compile 'org.apache.logging.log4j:log4j-jul:2.8'
 }

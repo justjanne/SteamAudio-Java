@@ -1,5 +1,5 @@
 /**
- * <h1>BinauralRenderer</h1>
+ * <h1>Binaural Renderer</h1>
  * <p>
  * Functions for managing a Binaural Renderer object. Before creating any effect objects that perform spatialization or
  * binaural rendering, you must create a Binaural Renderer object. This object describes global settings and audio

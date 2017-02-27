@@ -1,55 +1,55 @@
 package de.kuschku.steamaudio.lib.geometry;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * A point or vector in 3D space. Phonon uses a right-handed coordinate system, with the x-axis pointing right, the
- * y-axis pointing up, and the z-axis pointing ahead. Position and direction data obtained from a game engine or audio
- * engine must be properly transformed before being passed to any Phonon API function.
- */
-public class IPLVector3 extends Structure implements SmartStructure<IPLVector3> {
-    /**
-     * The x-coordinate.
-     */
-    public float x;
-
-    /**
-     * The y-coordinate.
-     */
-    public float y;
-
-    /**
-     * The z-coordinate.
-     */
-    public float z;
+@Library("steamaudio")
+public class IPLVector3 extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLVector3() {
         super();
     }
 
-    public IPLVector3(float x, float y, float z) {
-        super();
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public IPLVector3(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLVector3(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public float x() {
+        return this.io.getFloatField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("x", "y", "z");
+    @Field(0)
+    public IPLVector3 x(float x) {
+        this.io.setFloatField(this, 0, x);
+        return this;
     }
 
-    public static class ByReference extends IPLVector3 implements Structure.ByReference {
+    @Field(1)
+    public float y() {
+        return this.io.getFloatField(this, 1);
     }
 
-    public static class ByValue extends IPLVector3 implements Structure.ByValue {
+    @Field(1)
+    public IPLVector3 y(float y) {
+        this.io.setFloatField(this, 1, y);
+        return this;
+    }
+
+    @Field(2)
+    public float z() {
+        return this.io.getFloatField(this, 2);
+    }
+
+    @Field(2)
+    public IPLVector3 z(float z) {
+        this.io.setFloatField(this, 2, z);
+        return this;
     }
 }

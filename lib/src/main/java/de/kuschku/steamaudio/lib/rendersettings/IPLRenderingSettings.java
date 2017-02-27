@@ -1,58 +1,56 @@
 package de.kuschku.steamaudio.lib.rendersettings;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * Describes various properties of the audio processing pipeline. Many Phonon API objects that are used by the audio
- * engine need to know how the audio processing pipeline (i.e., your audio engine) applies DSP effects to audio data.
- * This structure describes the key parameters.
- */
-public class IPLRenderingSettings extends Structure implements SmartStructure<IPLRenderingSettings> {
-    /**
-     * The sampling rate (in Hz) of any audio to be processed by Phonon. <b>All audio that is passed to Phonon must use
-     * the same sampling rate.</b> Phonon will output audio at the same sampling rate as its input; no sampling rate
-     * conversion will be performed. Supported sampling rates are 24000 Hz, 44100 Hz, and 48000 Hz.
-     */
-    public int samplingRate;
-
-    /**
-     * The number of samples in a single frame of audio. The value of this parameter should be obtained from your audio
-     * engine.
-     */
-    public int frameSize;
-
-    /**
-     * The convolution algorithm to use for any Convolution Effect objects created for this audio processing pipeline.
-     */
-    public IPLConvolutionType convolutionType;
+@Library("steamaudio")
+public class IPLRenderingSettings extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLRenderingSettings() {
         super();
     }
 
-    public IPLRenderingSettings(int samplingRate, int frameSize, IPLConvolutionType convolutionType) {
-        super();
-        this.samplingRate = samplingRate;
-        this.frameSize = frameSize;
-        this.convolutionType = convolutionType;
+    public IPLRenderingSettings(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLRenderingSettings(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public int samplingRate() {
+        return this.io.getIntField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("samplingRate", "frameSize", "convolutionType");
+    @Field(0)
+    public IPLRenderingSettings samplingRate(int samplingRate) {
+        this.io.setIntField(this, 0, samplingRate);
+        return this;
     }
 
-    public static class ByReference extends IPLRenderingSettings implements Structure.ByReference {
+    @Field(1)
+    public int frameSize() {
+        return this.io.getIntField(this, 1);
     }
 
-    public static class ByValue extends IPLRenderingSettings implements Structure.ByValue {
+    @Field(1)
+    public IPLRenderingSettings frameSize(int frameSize) {
+        this.io.setIntField(this, 1, frameSize);
+        return this;
+    }
+
+    @Field(2)
+    public IntValuedEnum<IPLConvolutionType> convolutionType() {
+        return this.io.getEnumField(this, 2);
+    }
+
+    @Field(2)
+    public IPLRenderingSettings convolutionType(IntValuedEnum<IPLConvolutionType> convolutionType) {
+        this.io.setEnumField(this, 2, convolutionType);
+        return this;
     }
 }

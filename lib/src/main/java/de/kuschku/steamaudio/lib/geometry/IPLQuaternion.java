@@ -1,59 +1,66 @@
 package de.kuschku.steamaudio.lib.geometry;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import de.kuschku.steamaudio.lib.util.SmartStructure;
+import org.bridj.BridJ;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * A unit-length quaternion. Quaternions are used to represent a rotation or orientation.
- */
-public class IPLQuaternion extends Structure implements SmartStructure<IPLQuaternion> {
-    /**
-     * The x-coordinate of the vector part.
-     */
-    public float x;
-
-    /**
-     * The y-coordinate of the vector part.
-     */
-    public float y;
-
-    /**
-     * The z-coordinate of the vector part.
-     */
-    public float z;
-
-    /**
-     * The scalar part.
-     */
-    public float w;
+@Library("steamaudio")
+public class IPLQuaternion extends StructObject {
+    static {
+        BridJ.register();
+    }
 
     public IPLQuaternion() {
         super();
     }
 
-    public IPLQuaternion(float x, float y, float z, float w) {
-        super();
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.w = w;
+    public IPLQuaternion(Pointer<? extends StructObject> pointer) {
+        super(pointer);
     }
 
-    public IPLQuaternion(Pointer peer) {
-        super(peer);
+    @Field(0)
+    public float x() {
+        return this.io.getFloatField(this, 0);
     }
 
-    protected List<String> getFieldOrder() {
-        return Arrays.asList("x", "y", "z", "w");
+    @Field(0)
+    public IPLQuaternion x(float x) {
+        this.io.setFloatField(this, 0, x);
+        return this;
     }
 
-    public static class ByReference extends IPLQuaternion implements Structure.ByReference {
+    @Field(1)
+    public float y() {
+        return this.io.getFloatField(this, 1);
     }
 
-    public static class ByValue extends IPLQuaternion implements Structure.ByValue {
+    @Field(1)
+    public IPLQuaternion y(float y) {
+        this.io.setFloatField(this, 1, y);
+        return this;
+    }
+
+    @Field(2)
+    public float z() {
+        return this.io.getFloatField(this, 2);
+    }
+
+    @Field(2)
+    public IPLQuaternion z(float z) {
+        this.io.setFloatField(this, 2, z);
+        return this;
+    }
+
+    @Field(3)
+    public float w() {
+        return this.io.getFloatField(this, 3);
+    }
+
+    @Field(3)
+    public IPLQuaternion w(float w) {
+        this.io.setFloatField(this, 3, w);
+        return this;
     }
 }

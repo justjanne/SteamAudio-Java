@@ -1,65 +1,29 @@
 package de.kuschku.steamaudio.lib.audiobuffer;
 
-import de.kuschku.steamaudio.lib.util.EnumWrapper;
-import de.kuschku.steamaudio.lib.util.IntValuedEnum;
+import org.bridj.FlagSet;
+import org.bridj.IntValuedEnum;
 
-/**
- * Whether the audio buffer is encoded using Ambisonics or not.
- */
-public class IPLChannelLayoutType extends EnumWrapper<IPLChannelLayoutType.Enum> {
-    public IPLChannelLayoutType() {
-        super(Enum::of);
+import java.util.Collections;
+import java.util.Iterator;
+
+public enum IPLChannelLayoutType implements IntValuedEnum<IPLChannelLayoutType> {
+    IPL_CHANNELLAYOUTTYPE_SPEAKERS(0), IPL_CHANNELLAYOUTTYPE_AMBISONICS(1);
+
+    public final long value;
+
+    IPLChannelLayoutType(long value) {
+        this.value = value;
     }
 
-    public IPLChannelLayoutType(IPLChannelLayoutType.Enum value) {
-        super(value, IPLChannelLayoutType.Enum::of);
+    public static IntValuedEnum<IPLChannelLayoutType> fromValue(int value) {
+        return FlagSet.fromValue(value, values());
     }
 
-    public IPLChannelLayoutType(int value) {
-        super(value, Enum::of);
+    public long value() {
+        return this.value;
     }
 
-    public enum Enum implements IntValuedEnum {
-        /**
-         * Indicates that each channel of audio data is intended to be played back by a single speaker. This corresponds
-         * to
-         * most multi-speaker mono, stereo, or surround sound configurations.
-         */
-        IPL_CHANNELLAYOUTTYPE_SPEAKERS(0),
-
-        /**
-         * Indicates that each channel of audio data is to be interpreted as a series of Ambisonics coefficients.
-         * Playing
-         * back such an audio buffer requires a software or hardware Ambisonics decoder. Phonon contains a software
-         * Ambisonics decoder.
-         */
-        IPL_CHANNELLAYOUTTYPE_AMBISONICS(1),
-
-        IPL_CHANNELLAYOUTTYPE_UNKNOWN(-1);
-
-        private final int value;
-
-        Enum(int value) {
-            this.value = value;
-        }
-
-        public static Enum of(int value) {
-            switch (value) {
-                case 0:
-                    return IPL_CHANNELLAYOUTTYPE_SPEAKERS;
-                case 1:
-                    return IPL_CHANNELLAYOUTTYPE_AMBISONICS;
-                default:
-                    return IPL_CHANNELLAYOUTTYPE_UNKNOWN;
-            }
-        }
-
-        public int value() {
-            return value;
-        }
-
-        public IPLChannelLayoutType wrap() {
-            return new IPLChannelLayoutType(this);
-        }
+    public Iterator<IPLChannelLayoutType> iterator() {
+        return Collections.singleton(this).iterator();
     }
 }
