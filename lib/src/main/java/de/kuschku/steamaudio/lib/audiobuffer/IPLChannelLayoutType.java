@@ -6,8 +6,22 @@ import org.bridj.IntValuedEnum;
 import java.util.Collections;
 import java.util.Iterator;
 
+/**
+ * Whether the audio buffer is encoded using Ambisonics or not.
+ */
 public enum IPLChannelLayoutType implements IntValuedEnum<IPLChannelLayoutType> {
-    IPL_CHANNELLAYOUTTYPE_SPEAKERS(0), IPL_CHANNELLAYOUTTYPE_AMBISONICS(1);
+    /**
+     * Indicates that each channel of audio data is intended to be played back by a single speaker. This corresponds to
+     * most multi-speaker mono, stereo, or surround sound configurations.
+     */
+    IPL_CHANNELLAYOUTTYPE_SPEAKERS(0),
+
+    /**
+     * Indicates that each channel of audio data is to be interpreted as a series of Ambisonics coefficients. Playing
+     * back such an audio buffer requires a software or hardware Ambisonics decoder. Phonon contains a software
+     * Ambisonics decoder.
+     */
+    IPL_CHANNELLAYOUTTYPE_AMBISONICS(1);
 
     public final long value;
 

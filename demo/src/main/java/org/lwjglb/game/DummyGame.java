@@ -3,7 +3,7 @@ package org.lwjglb.game;
 import de.kuschku.steamaudio.lib.SteamAudio;
 import de.kuschku.steamaudio.lib.compute.ComputeDevice;
 import de.kuschku.steamaudio.lib.compute.IPLComputeDeviceType;
-import de.kuschku.steamaudio.lib.context.Context;
+import de.kuschku.steamaudio.lib.context.IPLContext;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
 import de.kuschku.steamaudio.lib.scene.IPLMaterial;
 import de.kuschku.steamaudio.lib.scene.IPLTriangle;
@@ -40,7 +40,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class DummyGame implements IGameLogic {
 
     private static final float MOUSE_SENSITIVITY = 0.2f;
-    private static final float CAMERA_POS_STEP = 0.10f;
+    private static final float CAMERA_POS_STEP = 0.20f;
     private static Logger logger = LogManager.getLogger(DummyGame.class);
     private static Logger audioLogger = LogManager.getLogger("AudioEngine");
     private final Vector3f cameraInc;
@@ -126,7 +126,7 @@ public class DummyGame implements IGameLogic {
         int vertexCount = 0;
         Set<IPLMaterial> materials = new HashSet<>();
         for (int i = 0; i < positions.length; i++) {
-            int scale = 3;
+            int scale = 4;
             GameItem gameItem = new GameItem(mesh);
             gameItem.setScale(scale);
             gameItem.setPosition(positions[i].x * 2 * scale - 2 * scale, positions[i].y * 2 * scale,
@@ -237,7 +237,7 @@ public class DummyGame implements IGameLogic {
         new Thread(() -> {
             try {
                 audioLogger.info("Initializing Context");
-                Context context = new Context();
+                IPLContext context = new IPLContext();
                 context.logCallback(logger::warn);
                 SteamAudio.context.iplInitializeCrashHandler();
 
@@ -252,7 +252,7 @@ public class DummyGame implements IGameLogic {
 
                 audioLogger.info(String.format("Loading %d materials", materials.size()));
                 for (int i = 0; i < materials.size(); i++) {
-                    scene.setSceneMaterial(i, materials.get(i));
+                    scene.setMaterial(i, materials.get(i));
                 }
 
                 audioLogger.info("Initializing Mesh");

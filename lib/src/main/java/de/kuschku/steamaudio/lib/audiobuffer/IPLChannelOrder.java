@@ -6,8 +6,21 @@ import org.bridj.IntValuedEnum;
 import java.util.Collections;
 import java.util.Iterator;
 
+/**
+ * Whether the data is interleaved or deinterleaved.
+ */
 public enum IPLChannelOrder implements IntValuedEnum<IPLChannelOrder> {
-    IPL_CHANNELORDER_INTERLEAVED(0), IPL_CHANNELORDER_DEINTERLEAVED(1);
+    /**
+     * Sample values for each channel are stored one after another, followed by the next set of sample values for each
+     * channel, etc. In the case of 2-channel stereo, this would correspond to {@code LRLRLRLR...}
+     */
+    IPL_CHANNELORDER_INTERLEAVED(0),
+
+    /**
+     * All sample values for the first channel are stored one after another, followed by the sample values for the next
+     * channel, etc. In the case of 2-channel stereo, this would correspond to {@code LLLL...RRRR...}
+     */
+    IPL_CHANNELORDER_DEINTERLEAVED(1);
 
     public final long value;
 

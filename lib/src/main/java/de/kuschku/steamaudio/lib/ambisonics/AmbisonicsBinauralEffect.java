@@ -14,15 +14,14 @@ public class AmbisonicsBinauralEffect extends PointerHandle implements AudioEffe
      * Creates an Ambisonics Binaural Effect object. This can be used to render higher-order Ambisonics data using
      * HRTF-based binaural rendering.
      *
-     * @param renderer     Handle to a Binaural Renderer object.
-     * @param inputFormat  The format of the audio buffers that will be passed as input to this effect. All subsequent
-     *                     calls to {@link SteamAudioBridge.ambisonics#__iplApplyAmbisonicsBinauralEffect} for this
-     *                     effect object must use {@link IPLAudioBuffer} objects with the same format as specified here.
-     *                     The input format must be Ambisonics.
-     * @param outputFormat The format of the audio buffers which will be used to retrieve the output from this effect.
-     *                     All subsequent calls to {@link SteamAudioBridge.ambisonics#__iplApplyAmbisonicsBinauralEffect}
-     *                     for this effect object must use {@link IPLAudioBuffer} objects with the same format as
-     *                     specified here. The output format must be stereo (2 channels).
+     * @param renderer Handle to a Binaural Renderer object.  @param inputFormat  The format of the audio buffers that
+     *                 will be passed as input to this effect. All subsequent  calls to {@link
+     *                 SteamAudioBridge.ambisonics#__iplApplyAmbisonicsBinauralEffect} for this  effect object must use
+     *                 {@link IPLAudioBuffer} objects with the same format as specified here.  The input format must be
+     *                 Ambisonics.  @param outputFormat The format of the audio buffers which will be used to retrieve
+     *                 the output from this effect.  All subsequent calls to {@link SteamAudioBridge.ambisonics#__iplApplyAmbisonicsBinauralEffect}
+     *                 for this effect object must use {@link IPLAudioBuffer} objects with the same format as specified
+     *                 here. The output format must be stereo (2 channels).
      */
     public AmbisonicsBinauralEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
             throws ErrorUtil.SteamAudioException {
