@@ -13,8 +13,8 @@ A tutorial for the library will be provided at a later time.
 
 ##Future Plans
 
-In the future I intend to provide an object-oriented wrapper for the library, to
-make working with the library easier.
+Further documentation and integration with Java Sound are planned, as is an
+API-compatible interface to paulscode.
 
 ##License
 
