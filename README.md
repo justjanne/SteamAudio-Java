@@ -21,9 +21,12 @@ API-compatible interface to paulscode.
 The native binaries (in the subfolder `natives/` and the gradle subproject
 `:natives`) are under the Valve SDK license, as described in [LICENSE.Valve.md](https://github.com/justjanne/SteamAudio-Java/blob/master/LICENSE.Valve.md).
 
-The Java bindings, and the demo projects (in the subfolders `demo/` and `lib/`,
-and the gradle subprojects `:demo` and `:lib`) are under Mozilla Public License,
+The Java bindings, and the demo projects (in the folders `demo/` and `lib/`,
+and the gradle modules `:demo` and `:lib`) are under Mozilla Public License,
 as described in [LICENSE.MPL.md](https://github.com/justjanne/SteamAudio-Java/blob/master/LICENSE.MPL.md)
+
+The Javadoc of the library (in the folder `lib/`,
+and the gradle module `:lib`) are derived from the Steam Audio library from Valve, and licensed under the Valve SDK license, as described in [LICENSE.Valve.md](https://github.com/justjanne/SteamAudio-Java/blob/master/LICENSE.Valve.md).
 
 The Demo Audio (in `demo/src/main/resources/sounds/demo-audio.ogg`) is the title
 "High as a Kite" from the Big Buck Bunny soundtrack by Jan Morgenstern and
