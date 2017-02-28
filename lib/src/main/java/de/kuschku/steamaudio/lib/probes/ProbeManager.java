@@ -9,6 +9,8 @@ public class ProbeManager extends PointerHandle {
      * Creates a Probe Manager object. A Probe Manager object manages a set of Probe Batch objects are runtime. It is
      * typically exported from the game engine to the audio engine via an Environment object. Probe Batch objects can be
      * dynamically added to or removed from a Probe Manager object.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeManager() throws ErrorUtil.SteamAudioException {
         super(SteamAudio.probes::iplCreateProbeManager);

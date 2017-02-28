@@ -14,13 +14,16 @@ public class BinauralEffect extends PointerHandle {
      * Creates an Object-Based Binaural Effect object. This can be used to render a point source using HRTF-based
      * binaural rendering.
      *
-     * @param renderer Handle to a Binaural Renderer object.  @param inputFormat  The format of the audio buffers that
-     *                 will be passed as input to this effect. All subsequent  calls to {@link #applyEffect} for this
-     *                 effect object must use {@link IPLAudioBuffer} objects  with the same format as specified here.
-     *                 The input format must not be Ambisonics.  @param outputFormat The format of the audio buffers
-     *                 which will be used to retrieve the output from this effect.  All subsequent calls to {@link
-     *                 #applyEffect} for this effect object must use {@link  IPLAudioBuffer} objects with the same
-     *                 format as specified here. The output format must be  stereo (2 channels).
+     * @param renderer     Handle to a Binaural Renderer object.
+     * @param inputFormat  The format of the audio buffers that will be passed as input to this effect. All subsequent
+     *                     calls to {@link #applyEffect} for this effect object must use {@link IPLAudioBuffer} objects
+     *                     with the same format as specified here. The input format must not be Ambisonics.
+     * @param outputFormat The format of the audio buffers which will be used to retrieve the output from this effect.
+     *                     All subsequent calls to {@link #applyEffect} for this effect object must use {@link
+     *                     IPLAudioBuffer} objects with the same format as specified here. The output format must be
+     *                     stereo (2 channels).
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public BinauralEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
             throws ErrorUtil.SteamAudioException {
@@ -32,8 +35,8 @@ public class BinauralEffect extends PointerHandle {
      * Applies HRTF-based binaural rendering to a buffer of audio data. The input audio is treated as emanating from a
      * single point. If the input audio buffer contains more than one channel, it will automatically be downmixed to
      * mono. Using bilinear interpolation (by setting {@code interpolation} to {@link
-     * IPLHrtfInterpolation#IPL_HRTFINTERPOLATION_BILINEAR)} can incur a relatively high CPU cost. Use it only on
-     * sources where nearest-neighbor filtering ({@link IPLHrtfInterpolation#IPL_HRTFINTERPOLATION_NEAREST)} produces
+     * IPLHrtfInterpolation#IPL_HRTFINTERPOLATION_BILINEAR}) can incur a relatively high CPU cost. Use it only on
+     * sources where nearest-neighbor filtering ({@link IPLHrtfInterpolation#IPL_HRTFINTERPOLATION_NEAREST}) produces
      * suboptimal results. Typically, bilinear filtering is most useful for wide-band noise-like sounds, such as radio
      * static, mechanical noise, fire, etc.
      *

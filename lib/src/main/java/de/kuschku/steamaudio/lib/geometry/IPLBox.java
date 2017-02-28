@@ -33,6 +33,8 @@ public class IPLBox extends StructObject {
 
     /**
      * @param minCoordinates The minimum coordinates of any vertex.
+     *
+     * @return this
      */
     @Field(0)
     public IPLBox minCoordinates(IPLVector3 minCoordinates) {
@@ -50,6 +52,8 @@ public class IPLBox extends StructObject {
 
     /**
      * @param maxCoordinates The maximum coordinates of any vertex.
+     *
+     * @return this
      */
     @Field(1)
     public IPLBox maxCoordinates(IPLVector3 maxCoordinates) {

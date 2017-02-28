@@ -37,6 +37,7 @@ public class IPLSimulationSettings extends StructObject {
     /**
      * @param sceneType The ray tracer to use for simulation.
      *
+     * @return this
      * @see IPLSceneType
      */
     @Field(0)
@@ -59,6 +60,8 @@ public class IPLSimulationSettings extends StructObject {
      * @param numRays The number of rays to trace from the listener. Increasing this number increases the accuracy of
      *                the simulation, but also increases CPU usage. Any positive integer may be specified, but typical
      *                values are in the range of 1024 to 131072.
+     *
+     * @return this
      */
     @Field(1)
     public IPLSimulationSettings numRays(int numRays) {
@@ -81,6 +84,8 @@ public class IPLSimulationSettings extends StructObject {
      *                          diffuse) surface. Increasing this number increases the accuracy of diffuse reflections,
      *                          and does not significantly impact CPU usage. Any positive integer may be specified, but
      *                          typical values are in the range of 32 to 4096.
+     *
+     * @return this
      */
     @Field(2)
     public IPLSimulationSettings numDiffuseSamples(int numDiffuseSamples) {
@@ -102,6 +107,8 @@ public class IPLSimulationSettings extends StructObject {
      * @param numBounces The maximum number of times any ray can bounce within the scene. Increasing this number allows
      *                   the simulation to more accurately model reverberant spaces, at the cost of increased CPU usage.
      *                   Any positive integer may be specified, but typical values are in the range of 1 to 32.
+     *
+     * @return this
      */
     @Field(3)
     public IPLSimulationSettings numBounces(int numBounces) {
@@ -123,6 +130,8 @@ public class IPLSimulationSettings extends StructObject {
      * @param irDuration The time delay between a sound being emitted and the last audible reflection. Echoes and
      *                   reverberation longer than this amount will not be modeled by the simulation. Any positive
      *                   number may be specified, but typical values are in the range of 0.5 to 4.0.
+     *
+     * @return this
      */
     @Field(4)
     public IPLSimulationSettings irDuration(float irDuration) {
@@ -149,6 +158,8 @@ public class IPLSimulationSettings extends StructObject {
      *                        consumption. Any non-negative integer may be specified, but typical values are between 0
      *                        and 3. A value of 0 results in no directional variation in the simulation results. Values
      *                        of 4 or higher incur a significant performance penalty.
+     *
+     * @return this
      */
     @Field(5)
     public IPLSimulationSettings ambisonicsOrder(int ambisonicsOrder) {
@@ -173,6 +184,8 @@ public class IPLSimulationSettings extends StructObject {
      *                              this many Convolution Effect objects, creation will fail. Increasing this number
      *                              allows more sound sources to be rendered with sound propagation effects, but at the
      *                              cost of increased memory consumption.
+     *
+     * @return this
      */
     @Field(6)
     public IPLSimulationSettings maxConvolutionSources(int maxConvolutionSources) {

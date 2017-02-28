@@ -34,6 +34,8 @@ public class IPLMaterial extends StructObject {
 
     /**
      * @param lowFreqAbsorption Fraction of sound energy absorbed at low frequencies. Between 0.0 and 1.0.
+     *
+     * @return this
      */
     @Field(0)
     public IPLMaterial lowFreqAbsorption(float lowFreqAbsorption) {
@@ -51,6 +53,8 @@ public class IPLMaterial extends StructObject {
 
     /**
      * @param midFreqAbsorption Fraction of sound energy absorbed at middle frequencies. Between 0.0 and 1.0.
+     *
+     * @return this
      */
     @Field(1)
     public IPLMaterial midFreqAbsorption(float midFreqAbsorption) {
@@ -68,6 +72,8 @@ public class IPLMaterial extends StructObject {
 
     /**
      * @param highFreqAbsorption Fraction of sound energy absorbed at high frequencies. Between 0.0 and 1.0.
+     *
+     * @return this
      */
     @Field(2)
     public IPLMaterial highFreqAbsorption(float highFreqAbsorption) {
@@ -89,6 +95,8 @@ public class IPLMaterial extends StructObject {
      * @param scattering Fraction of sound energy that is scattered in a random direction when it reaches the surface.
      *                   Between 0.0 and 1.0. A value of 0.0 describes a smooth surface with mirror-like reflection
      *                   properties; a value of 1.0 describes rough surface with diffuse reflection properties.
+     *
+     * @return this
      */
     @Field(3)
     public IPLMaterial scattering(float scattering) {

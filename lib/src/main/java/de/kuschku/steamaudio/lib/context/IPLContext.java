@@ -38,6 +38,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param logCallback Callback for logging messages.
+     *
+     * @return this
      */
     @Field(0)
     public IPLContext logCallback(Pointer<IPLLogFunction> logCallback) {
@@ -47,6 +49,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param logCallback Callback for logging messages.
+     *
+     * @return this
      */
     public IPLContext logCallback(Consumer<String> logCallback) {
         logCallback(Pointer.getPointer(new IPLLogFunction() {
@@ -68,6 +72,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param allocateCallback Callback for allocating memory.
+     *
+     * @return this
      */
     @Field(1)
     public IPLContext allocateCallback(Pointer<IPLAllocateFunction> allocateCallback) {
@@ -77,6 +83,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param allocateCallback Callback for allocating memory.
+     *
+     * @return this
      */
     public IPLContext allocateCallback(BiFunction<Long, Long, Long> allocateCallback) {
         allocateCallback(Pointer.getPointer(new IPLAllocateFunction() {
@@ -97,6 +105,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param freeCallback Callback for freeing memory.
+     *
+     * @return this
      */
     @Field(2)
     public IPLContext freeCallback(Pointer<IPLFreeFunction> freeCallback) {
@@ -106,6 +116,8 @@ public class IPLContext extends StructObject {
 
     /**
      * @param freeCallback Callback for freeing memory.
+     *
+     * @return this
      */
     public IPLContext freeCallback(Consumer<Long> freeCallback) {
         freeCallback(Pointer.getPointer(new IPLFreeFunction() {

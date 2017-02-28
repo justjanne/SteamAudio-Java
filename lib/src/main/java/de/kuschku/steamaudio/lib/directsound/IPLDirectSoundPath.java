@@ -36,6 +36,8 @@ public class IPLDirectSoundPath extends StructObject {
 
     /**
      * @param direction Unit vector from the listener to the source.
+     *
+     * @return this
      */
     @Field(0)
     public IPLDirectSoundPath direction(IPLVector3 direction) {
@@ -55,6 +57,8 @@ public class IPLDirectSoundPath extends StructObject {
     /**
      * @param distanceAttenuation Scaling factor to apply to direct sound, that arises due to the spherical attenuation
      *                            of sound with distance from the source. Linear scale from 0.0 to 1.0.
+     *
+     * @return this
      */
     @Field(1)
     public IPLDirectSoundPath distanceAttenuation(float distanceAttenuation) {
@@ -82,6 +86,8 @@ public class IPLDirectSoundPath extends StructObject {
 
     /**
      * @param propagationDelay Time delay (in seconds) due to propagation from the source to the listener.
+     *
+     * @return this
      */
     @Field(3)
     public IPLDirectSoundPath propagationDelay(float propagationDelay) {
@@ -101,6 +107,8 @@ public class IPLDirectSoundPath extends StructObject {
     /**
      * @param occlusionFactor Scaling factor to apply to direct sound, that arises due to occlusion by scene geometry.
      *                        Linear scale from 0.0 to 1.0.
+     *
+     * @return this
      */
     @Field(4)
     public IPLDirectSoundPath occlusionFactor(float occlusionFactor) {

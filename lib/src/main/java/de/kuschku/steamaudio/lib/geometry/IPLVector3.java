@@ -35,6 +35,8 @@ public class IPLVector3 extends StructObject {
 
     /**
      * @param x The x-coordinate.
+     *
+     * @return this
      */
     @Field(0)
     public IPLVector3 x(float x) {
@@ -52,6 +54,8 @@ public class IPLVector3 extends StructObject {
 
     /**
      * @param y The y-coordinate.
+     *
+     * @return this
      */
     @Field(1)
     public IPLVector3 y(float y) {
@@ -69,6 +73,8 @@ public class IPLVector3 extends StructObject {
 
     /**
      * @param z The z-coordinate.
+     *
+     * @return this
      */
     @Field(2)
     public IPLVector3 z(float z) {

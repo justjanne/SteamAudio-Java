@@ -41,6 +41,8 @@ public class IPLRenderingSettings extends StructObject {
      *                     to Phonon must use the same sampling rate.</b> Phonon will output audio at the same sampling
      *                     rate as its input; no sampling rate conversion will be performed. Supported sampling rates
      *                     are 24000 Hz, 44100 Hz, and 48000 Hz.
+     *
+     * @return this
      */
     @Field(0)
     public IPLRenderingSettings samplingRate(int samplingRate) {
@@ -60,6 +62,8 @@ public class IPLRenderingSettings extends StructObject {
     /**
      * @param frameSize The number of samples in a single frame of audio. The value of this parameter should be obtained
      *                  from your audio engine.
+     *
+     * @return this
      */
     @Field(1)
     public IPLRenderingSettings frameSize(int frameSize) {
@@ -79,6 +83,8 @@ public class IPLRenderingSettings extends StructObject {
     /**
      * @param convolutionType The convolution algorithm to use for any Convolution Effect objects created for this audio
      *                        processing pipeline.
+     *
+     * @return this
      */
     @Field(2)
     public IPLRenderingSettings convolutionType(IntValuedEnum<IPLConvolutionType> convolutionType) {

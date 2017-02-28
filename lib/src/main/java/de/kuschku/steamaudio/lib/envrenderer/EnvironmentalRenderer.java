@@ -23,6 +23,8 @@ public class EnvironmentalRenderer extends PointerHandle {
      * @param outputFormat      The audio format of the output buffers passed to any subsequent call to {@link
      *                          ConvolutionEffect#getMixedEnvironmentalAudio}. This format must not be changed once it
      *                          is set during the call to this function.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public EnvironmentalRenderer(IPLContext context, Environment environment, IPLRenderingSettings renderingSettings,
                                  IPLAudioFormat outputFormat) throws ErrorUtil.SteamAudioException {

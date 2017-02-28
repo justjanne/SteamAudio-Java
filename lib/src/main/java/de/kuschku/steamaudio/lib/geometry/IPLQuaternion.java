@@ -33,6 +33,8 @@ public class IPLQuaternion extends StructObject {
 
     /**
      * @param x The x-coordinate of the vector part.
+     *
+     * @return this
      */
     @Field(0)
     public IPLQuaternion x(float x) {
@@ -50,6 +52,8 @@ public class IPLQuaternion extends StructObject {
 
     /**
      * @param y The y-coordinate of the vector part.
+     *
+     * @return this
      */
     @Field(1)
     public IPLQuaternion y(float y) {
@@ -67,6 +71,8 @@ public class IPLQuaternion extends StructObject {
 
     /**
      * @param z The z-coordinate of the vector part.
+     *
+     * @return this
      */
     @Field(2)
     public IPLQuaternion z(float z) {
@@ -84,6 +90,8 @@ public class IPLQuaternion extends StructObject {
 
     /**
      * @param w The scalar part.
+     *
+     * @return this
      */
     @Field(3)
     public IPLQuaternion w(float w) {

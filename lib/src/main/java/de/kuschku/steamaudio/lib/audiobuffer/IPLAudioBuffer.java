@@ -34,6 +34,8 @@ public class IPLAudioBuffer extends StructObject {
 
     /**
      * @param format The format of the audio data.
+     *
+     * @return this
      */
     @Field(0)
     public IPLAudioBuffer format(IPLAudioFormat format) {
@@ -54,6 +56,8 @@ public class IPLAudioBuffer extends StructObject {
     /**
      * @param numSamples The number of samples in the audio buffer. The total number of elements in the audio buffer is
      *                   equal to {@code numSamples} * {@code format.numSpeakers}.
+     *
+     * @return this
      */
     @Field(1)
     public IPLAudioBuffer numSamples(int numSamples) {
@@ -75,6 +79,8 @@ public class IPLAudioBuffer extends StructObject {
      * @param interleavedBuffer A pointer to a contiguous block of memory containing interleaved audio data in the
      *                          format described by {@code format}. Can be {@code NULL} if {@link
      *                          IPLAudioFormat#channelOrder} is {@link IPLChannelOrder#IPL_CHANNELORDER_DEINTERLEAVED}.
+     *
+     * @return this
      */
     @Field(2)
     public IPLAudioBuffer interleavedBuffer(Pointer<Float> interleavedBuffer) {
@@ -99,6 +105,8 @@ public class IPLAudioBuffer extends StructObject {
      *                            {@code format}. In other words, deinterleaved audio data doesn't have to be stored
      *                            contiguously in memory. Can be {@code NULL} if {@link IPLAudioFormat#channelOrder} is
      *                            {@link IPLChannelOrder#IPL_CHANNELORDER_INTERLEAVED}.
+     *
+     * @return this
      */
     @Field(3)
     public IPLAudioBuffer deinterleavedBuffer(Pointer<Pointer<Float>> deinterleavedBuffer) {

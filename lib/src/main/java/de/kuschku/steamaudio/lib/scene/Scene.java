@@ -26,6 +26,8 @@ public class Scene extends PointerHandle {
      *                           may be {@code NULL} otherwise.
      * @param progressCallback   Pointer to a function that reports the percentage of this function's work that has been
      *                           completed. May be {@code NULL}.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public Scene(IPLContext context, IPLSimulationSettings simulationSettings, String fileName,
                  ComputeDevice computeDevice, IPLLoadSceneProgressCallback progressCallback)
@@ -47,6 +49,8 @@ public class Scene extends PointerHandle {
      * @param simulationSettings The settings to use for simulation.
      * @param numMaterials       The number of materials that are used to describe the various surfaces in the scene.
      *                           Materials may not be added or removed once the Scene object is created.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public Scene(IPLContext context, ComputeDevice computeDevice, IPLSimulationSettings simulationSettings,
                  int numMaterials) throws ErrorUtil.SteamAudioException {

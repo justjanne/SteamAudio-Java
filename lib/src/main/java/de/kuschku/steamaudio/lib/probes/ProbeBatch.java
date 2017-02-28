@@ -14,6 +14,8 @@ public class ProbeBatch extends PointerHandle {
      *
      * @param data Byte array containing the serialized representation of the Probe Batch object. Must not be {@code
      *             NULL}.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeBatch(ByteBuffer data) throws ErrorUtil.SteamAudioException {
         super(SteamAudio.probes::iplLoadProbeBatch, data, data.capacity());
@@ -28,6 +30,8 @@ public class ProbeBatch extends PointerHandle {
      * Boxes to sample the scene.</li><li>Using the editor, the designer specifies Probe Batches, and decides which
      * probes are part of each Probe Batch.</li><li>The editor saves the Probe Batches along with the rest of the scene
      * data for use at run-time.</li><li>At run-time, Phonon uses the Probe Batches to retrieve baked data.</li></ol>
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeBatch() throws ErrorUtil.SteamAudioException {
         super(SteamAudio.probes::iplCreateProbeBatch);

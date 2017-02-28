@@ -38,6 +38,8 @@ public class IPLAudioFormat extends StructObject {
 
     /**
      * @param channelLayoutType Indicates whether or not the audio should be interpreted as Ambisonics data.
+     *
+     * @return this
      */
     @Field(0)
     public IPLAudioFormat channelLayoutType(IntValuedEnum<IPLChannelLayoutType> channelLayoutType) {
@@ -57,6 +59,8 @@ public class IPLAudioFormat extends StructObject {
     /**
      * @param channelLayout Specifies the speaker configuration used for multi-channel, speaker-based audio data.
      *                      Ignored if {@link #channelLayoutType} is {@link IPLChannelLayoutType#IPL_CHANNELLAYOUTTYPE_AMBISONICS}.
+     *
+     * @return this
      */
     @Field(1)
     public IPLAudioFormat channelLayout(IntValuedEnum<IPLChannelLayout> channelLayout) {
@@ -76,6 +80,8 @@ public class IPLAudioFormat extends StructObject {
     /**
      * @param numSpeakers The number of channels in the audio data. Must be specified regardless of the value of {@link
      *                    #channelLayoutType}.
+     *
+     * @return this
      */
     @Field(2)
     public IPLAudioFormat numSpeakers(int numSpeakers) {
@@ -98,6 +104,8 @@ public class IPLAudioFormat extends StructObject {
      *                          to the user. Can be {@code NULL}. Only used if {@link #channelLayoutType} is {@link
      *                          IPLChannelLayoutType#IPL_CHANNELLAYOUTTYPE_SPEAKERS} and {@link #channelLayout} is
      *                          {@link IPLChannelLayout#IPL_CHANNELLAYOUT_CUSTOM}.
+     *
+     * @return this
      */
     @Field(3)
     public IPLAudioFormat speakerDirections(Pointer<IPLVector3> speakerDirections) {
@@ -117,6 +125,8 @@ public class IPLAudioFormat extends StructObject {
     /**
      * @param ambisonicsOrder The order of Ambisonics to use. Must be 0 or greater. Ignored if {@link
      *                        #channelLayoutType} is {@link IPLChannelLayoutType#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
+     *
+     * @return this
      */
     @Field(4)
     public IPLAudioFormat ambisonicsOrder(int ambisonicsOrder) {
@@ -136,6 +146,8 @@ public class IPLAudioFormat extends StructObject {
     /**
      * @param ambisonicsOrdering The ordering of Ambisonics channels within the data. Ignored if {@link
      *                           #channelLayoutType} is {@link IPLChannelLayoutType#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
+     *
+     * @return this
      */
     @Field(5)
     public IPLAudioFormat ambisonicsOrdering(IntValuedEnum<IPLAmbisonicsOrdering> ambisonicsOrdering) {
@@ -155,6 +167,8 @@ public class IPLAudioFormat extends StructObject {
     /**
      * @param ambisonicsNormalization The normalization scheme used for Ambisonics data. Ignored if {@link
      *                                #channelLayoutType} is {@link IPLChannelLayoutType#IPL_CHANNELLAYOUTTYPE_SPEAKERS}.
+     *
+     * @return this
      */
     @Field(6)
     public IPLAudioFormat ambisonicsNormalization(IntValuedEnum<IPLAmbisonicsNormalization> ambisonicsNormalization) {
@@ -172,6 +186,8 @@ public class IPLAudioFormat extends StructObject {
 
     /**
      * @param channelOrder Whether the audio data is interleaved or deinterleaved.
+     *
+     * @return this
      */
     @Field(7)
     public IPLAudioFormat channelOrder(IntValuedEnum<IPLChannelOrder> channelOrder) {

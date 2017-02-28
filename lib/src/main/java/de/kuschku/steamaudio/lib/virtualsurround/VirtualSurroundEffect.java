@@ -22,6 +22,8 @@ public class VirtualSurroundEffect extends PointerHandle implements AudioEffect 
      *                     All subsequent calls to {@link #applyEffect} for this effect object must use {@link
      *                     IPLAudioBuffer} objects with the same format as specified here. The output format must be
      *                     stereo (2 channels).
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public VirtualSurroundEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
             throws ErrorUtil.SteamAudioException {

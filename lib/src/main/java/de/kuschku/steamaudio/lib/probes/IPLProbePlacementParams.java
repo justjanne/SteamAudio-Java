@@ -34,6 +34,8 @@ public class IPLProbePlacementParams extends StructObject {
 
     /**
      * @param placement The placement algorithm to use for creating probes.
+     *
+     * @return this
      */
     @Field(0)
     public IPLProbePlacementParams placement(IntValuedEnum<IPLProbePlacement> placement) {
@@ -53,6 +55,8 @@ public class IPLProbePlacementParams extends StructObject {
     /**
      * @param spacing Spacing between probes along the horizontal plane. Only used if {@code placement} is {@link
      *                IPLProbePlacement#IPL_PLACEMENT_UNIFORMFLOOR}.
+     *
+     * @return this
      */
     @Field(1)
     public IPLProbePlacementParams spacing(float spacing) {
@@ -72,6 +76,8 @@ public class IPLProbePlacementParams extends StructObject {
     /**
      * @param heightAboveFloor Height of the probes above the closest floor or terrain surfaces. Only used if {@code
      *                         placement} is {@link IPLProbePlacement#IPL_PLACEMENT_UNIFORMFLOOR}.
+     *
+     * @return this
      */
     @Field(2)
     public IPLProbePlacementParams heightAboveFloor(float heightAboveFloor) {
@@ -91,6 +97,8 @@ public class IPLProbePlacementParams extends StructObject {
     /**
      * @param maxOctreeTriangles The maximum number of triangles to store in an octree leaf node. Only used if {@code
      *                           placement} is {@link IPLProbePlacement#IPL_PLACEMENT_OCTREE}.
+     *
+     * @return this
      */
     @Field(3)
     public IPLProbePlacementParams maxOctreeTriangles(int maxOctreeTriangles) {
@@ -110,6 +118,8 @@ public class IPLProbePlacementParams extends StructObject {
     /**
      * @param maxOctreeDepth The maximum depth of the octree. Increasing this value increases density of the generated
      *                       probes. Only used if {@code placement} is {@link IPLProbePlacement#IPL_PLACEMENT_OCTREE}.
+     *
+     * @return this
      */
     @Field(4)
     public IPLProbePlacementParams maxOctreeDepth(int maxOctreeDepth) {

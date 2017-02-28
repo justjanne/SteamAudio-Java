@@ -27,6 +27,8 @@ public class Environment extends PointerHandle {
      *                           {@code NULL}, in which case only direct sound will be simulated, without occlusion or
      *                           any other indirect sound propagation.
      * @param probeManager       The Probe Manager object. May be {@code NULL} if not using baked data.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public Environment(IPLContext context, ComputeDevice computeDevice, IPLSimulationSettings simulationSettings,
                        Scene scene, ProbeManager probeManager) throws ErrorUtil.SteamAudioException {

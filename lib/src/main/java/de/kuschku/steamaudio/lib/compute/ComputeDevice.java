@@ -12,6 +12,8 @@ public class ComputeDevice extends PointerHandle {
      *
      * @param deviceType      The type of device to use.
      * @param numComputeUnits Reserved for future use.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ComputeDevice(IPLComputeDeviceType deviceType, int numComputeUnits) throws ErrorUtil.SteamAudioException {
         super(SteamAudio.compute::iplCreateComputeDevice, deviceType, numComputeUnits);

@@ -27,6 +27,8 @@ public class ConvolutionEffect extends PointerHandle {
      * @param simulationType Whether this Convolution Effect object should use baked data or real-time simulation.
      * @param inputFormat    Format of all audio buffers passed as input to {@link #setDryAudio}.
      * @param outputFormat   Format of all output audio buffers passed to {@link #getWetAudio}.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ConvolutionEffect(EnvironmentalRenderer renderer, String name, IPLSimulationType simulationType,
                              IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)

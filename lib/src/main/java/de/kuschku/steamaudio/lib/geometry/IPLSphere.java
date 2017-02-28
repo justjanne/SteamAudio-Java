@@ -33,6 +33,8 @@ public class IPLSphere extends StructObject {
 
     /**
      * @param center The center.
+     *
+     * @return this
      */
     @Field(0)
     public IPLSphere center(IPLVector3 center) {
@@ -50,6 +52,8 @@ public class IPLSphere extends StructObject {
 
     /**
      * @param radius The radius.
+     *
+     * @return this
      */
     @Field(1)
     public IPLSphere radius(float radius) {

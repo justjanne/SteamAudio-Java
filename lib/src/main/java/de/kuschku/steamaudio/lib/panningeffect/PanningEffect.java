@@ -20,7 +20,9 @@ public class PanningEffect extends PointerHandle {
      *                     with the same format as specified here. The input format must not be Ambisonics.
      * @param outputFormat The format of the audio buffers which will be used to retrieve the output from this effect.
      *                     All subsequent calls to {@link #applyEffect} for this effect object must use {@link
-     *                     IPLAudioBuffer} objects with the same format as specified here. Any valid audio format may be
+     *                     IPLAudioBuffer} objects with the same f
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.ormat as specified here. Any valid audio format may be
      *                     specified as the output format.
      */
     public PanningEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)

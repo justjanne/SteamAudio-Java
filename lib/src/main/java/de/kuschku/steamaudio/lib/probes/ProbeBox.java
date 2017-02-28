@@ -18,6 +18,8 @@ public class ProbeBox extends PointerHandle {
      *
      * @param data Byte array containing the serialized representation of the Probe Box object. Must not be {@code
      *             NULL}.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeBox(ByteBuffer data) throws ErrorUtil.SteamAudioException {
         super(SteamAudio.probes::iplLoadProbeBox, data, data.capacity());
@@ -33,6 +35,8 @@ public class ProbeBox extends PointerHandle {
      * @param placementParams  Parameters specifying how probes should be generated.
      * @param progressCallback Pointer to a function that reports the percentage of this function's work that has been
      *                         completed. May be {@code NULL}.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeBox(Scene scene, IPLBox box, IPLProbePlacementParams placementParams,
                     IPLProbePlacementProgressCallback progressCallback) throws ErrorUtil.SteamAudioException {

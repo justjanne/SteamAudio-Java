@@ -22,6 +22,8 @@ public class BinauralRenderer extends PointerHandle {
      * @param renderingSettings An {@link IPLRenderingSettings} object describing the audio pipeline's DSP processing
      *                          parameters. These properties must remain constant throughout the lifetime of your
      *                          application.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public BinauralRenderer(IPLContext context, IPLRenderingSettings renderingSettings)
             throws ErrorUtil.SteamAudioException {
@@ -43,6 +45,8 @@ public class BinauralRenderer extends PointerHandle {
      * @param hrtfData          Pointer to a byte array containing HRTF data. For most situations, set this parameter to
      *                          {@code NULL}; Phonon will use its built-in HRTF data. If you want to use customized or
      *                          personalized HRTF data, contact Impulsonic for further information.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public BinauralRenderer(IPLContext context, IPLRenderingSettings renderingSettings, ByteBuffer hrtfData)
             throws ErrorUtil.SteamAudioException {

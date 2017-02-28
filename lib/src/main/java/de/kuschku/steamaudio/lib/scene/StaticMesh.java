@@ -19,6 +19,8 @@ public class StaticMesh extends PointerHandle {
      * @param scene        Handle to the Scene object to which to add the Static Mesh object.
      * @param numVertices  Number of vertices in the triangle mesh.
      * @param numTriangles Number of triangles in the triangle mesh.
+     *
+     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
      */
     public StaticMesh(Scene scene, int numVertices, int numTriangles) throws ErrorUtil.SteamAudioException {
         super(SteamAudio.scene::iplCreateStaticMesh, scene, numVertices, numTriangles);
@@ -55,9 +57,9 @@ public class StaticMesh extends PointerHandle {
      * Specifies the materials associated with each triangle in a Static Mesh object. Material indices passed
      * using this function refer to the array containing material data passed to {@link Scene#setMaterial}.
      *
-     * @param  materialIndices     Array containing material indices for all triangles in the Static Mesh object.
-     *                             The number of material indices in the array must be equal to the value of
-     *                             {@code numTriangles} passed to {@link #StaticMesh}.
+     * @param materialIndices Array containing material indices for all triangles in the Static Mesh object. The number
+     *                        of material indices in the array must be equal to the value of {@code numTriangles} passed
+     *                        to {@link #StaticMesh}.
      */
     public void setMaterials(Pointer<Integer> materialIndices) {
         SteamAudio.scene.iplSetStaticMeshMaterials(scene, this, materialIndices);

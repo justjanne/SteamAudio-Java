@@ -37,6 +37,8 @@ public class IPLBakingSettings extends StructObject {
      * @param bakeParametric Enables the generation of I3DL2-compliant parametric reverb. This is most suited for
      *                       calculating reverb in relatively enclosed spaces. It is less suitable for open spaces, or
      *                       source-to-listener propagation. It consumes very little memory per probe.
+     *
+     * @return this
      */
     @Field(0)
     public IPLBakingSettings bakeParametric(boolean bakeParametric) {
@@ -58,6 +60,8 @@ public class IPLBakingSettings extends StructObject {
      * @param bakeConvolution Enables the generation of detailed impulse responses for convolution reverb. This is
      *                        suited for all kinds of spaces, and for reverb as well as source-to-listener propagation.
      *                        However, it consumes significantly more memory per probe.
+     *
+     * @return this
      */
     @Field(1)
     public IPLBakingSettings bakeConvolution(boolean bakeConvolution) {

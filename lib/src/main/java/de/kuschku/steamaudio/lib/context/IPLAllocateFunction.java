@@ -10,8 +10,8 @@ public abstract class IPLAllocateFunction extends Callback<IPLAllocateFunction> 
      * Prototype of a callback that allocates memory. This is usually specified to let Phonon use a custom memory
      * allocator. The default behavior is to use the OS-dependent aligned version of {@code malloc}.
      *
-     * @param  size        The number of bytes to allocate.
-     * @param  alignment   The alignment (in bytes) of the start address of the allocated memory.
+     * @param size      The number of bytes to allocate.
+     * @param alignment The alignment (in bytes) of the start address of the allocated memory.
      *
      * @return Pointer to the allocated block of memory, or {@code NULL} if allocation failed.
      */
@@ -23,8 +23,8 @@ public abstract class IPLAllocateFunction extends Callback<IPLAllocateFunction> 
      * Prototype of a callback that allocates memory. This is usually specified to let Phonon use a custom memory
      * allocator. The default behavior is to use the OS-dependent aligned version of {@code malloc}.
      *
-     * @param  size        The number of bytes to allocate.
-     * @param  alignment   The alignment (in bytes) of the start address of the allocated memory.
+     * @param size      The number of bytes to allocate.
+     * @param alignment The alignment (in bytes) of the start address of the allocated memory.
      *
      * @return Pointer to the allocated block of memory, or {@code NULL} if allocation failed.
      */
