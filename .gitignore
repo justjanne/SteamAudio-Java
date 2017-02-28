@@ -10,3 +10,4 @@ gradle.properties
 logs/*
 scene.obj
 scene.file
+out
