@@ -7,3 +7,6 @@ local.properties
 .gradle/*
 .idea/*
 gradle.properties
+logs/*
+scene.obj
+scene.file
