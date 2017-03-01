@@ -1,6 +1,6 @@
 package de.kuschku.steamaudio.lib.baking;
 
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.util.SteamAudioBridge;
 import org.bridj.Callback;
 
 public abstract class IPLBakeProgressCallback extends Callback<IPLBakeProgressCallback> {

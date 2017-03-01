@@ -1,8 +1,8 @@
 package de.kuschku.steamaudio.lib.compute;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
+import de.kuschku.steamaudio.lib.util.SteamAudio;
 import de.kuschku.steamaudio.lib.util.PointerHandle;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 
 public class ComputeDevice extends PointerHandle {
     /**
@@ -13,9 +13,9 @@ public class ComputeDevice extends PointerHandle {
      * @param deviceType      The type of device to use.
      * @param numComputeUnits Reserved for future use.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public ComputeDevice(IPLComputeDeviceType deviceType, int numComputeUnits) throws ErrorUtil.SteamAudioException {
+    public ComputeDevice(IPLComputeDeviceType deviceType, int numComputeUnits) throws SteamAudioException {
         super(SteamAudio.compute::iplCreateComputeDevice, deviceType, numComputeUnits);
         setOnDelete(SteamAudio.compute::iplDestroyComputeDevice);
     }

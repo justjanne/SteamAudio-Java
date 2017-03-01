@@ -1,6 +1,7 @@
 package de.kuschku.steamaudio.lib.util;
 
-import de.kuschku.steamaudio.lib.IPLerror;
+import de.kuschku.steamaudio.lib.error.IPLerror;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 import org.bridj.Pointer;
 
 import java.io.Closeable;
@@ -55,49 +56,49 @@ public abstract class PointerHandle implements Closeable {
         fun.apply(a, b, c, d, e, f, g, h, i, reference);
     }
 
-    protected PointerHandle(Methods._0 fun) throws ErrorUtil.SteamAudioException {
+    protected PointerHandle(Methods._0 fun) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(reference));
     }
 
-    protected <A> PointerHandle(Methods._1<A> fun, A a) throws ErrorUtil.SteamAudioException {
+    protected <A> PointerHandle(Methods._1<A> fun, A a) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, reference));
     }
 
-    protected <A, B> PointerHandle(Methods._2<A, B> fun, A a, B b) throws ErrorUtil.SteamAudioException {
+    protected <A, B> PointerHandle(Methods._2<A, B> fun, A a, B b) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, reference));
     }
 
-    protected <A, B, C> PointerHandle(Methods._3<A, B, C> fun, A a, B b, C c) throws ErrorUtil.SteamAudioException {
+    protected <A, B, C> PointerHandle(Methods._3<A, B, C> fun, A a, B b, C c) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, reference));
     }
 
     protected <A, B, C, D> PointerHandle(Methods._4<A, B, C, D> fun, A a, B b, C c, D d)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, reference));
     }
 
     protected <A, B, C, D, E> PointerHandle(Methods._5<A, B, C, D, E> fun, A a, B b, C c, D d, E e)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, e, reference));
     }
 
     protected <A, B, C, D, E, F> PointerHandle(Methods._6<A, B, C, D, E, F> fun, A a, B b, C c, D d, E e, F f)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, e, f, reference));
     }
 
     protected <A, B, C, D, E, F, G> PointerHandle(Methods._7<A, B, C, D, E, F, G> fun, A a, B b, C c, D d, E e, F f,
-                                                  G g) throws ErrorUtil.SteamAudioException {
+                                                  G g) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, e, f, g, reference));
     }
 
     protected <A, B, C, D, E, F, G, H> PointerHandle(Methods._8<A, B, C, D, E, F, G, H> fun, A a, B b, C c, D d, E e,
-                                                     F f, G g, H h) throws ErrorUtil.SteamAudioException {
+                                                     F f, G g, H h) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, e, f, g, h, reference));
     }
 
     protected <A, B, C, D, E, F, G, H, I> PointerHandle(Methods._9<A, B, C, D, E, F, G, H, I> fun, A a, B b, C c, D d,
-                                                        E e, F f, G g, H h, I i) throws ErrorUtil.SteamAudioException {
+                                                        E e, F f, G g, H h, I i) throws SteamAudioException {
         ErrorUtil.errorToException(fun.apply(a, b, c, d, e, f, g, h, i, reference));
     }
 

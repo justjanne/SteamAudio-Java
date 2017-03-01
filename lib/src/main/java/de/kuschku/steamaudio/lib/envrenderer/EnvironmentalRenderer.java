@@ -1,14 +1,12 @@
 package de.kuschku.steamaudio.lib.envrenderer;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioFormat;
 import de.kuschku.steamaudio.lib.context.IPLContext;
 import de.kuschku.steamaudio.lib.conveffect.ConvolutionEffect;
 import de.kuschku.steamaudio.lib.environment.Environment;
 import de.kuschku.steamaudio.lib.rendersettings.IPLRenderingSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class EnvironmentalRenderer extends PointerHandle {
     /**
@@ -24,10 +22,10 @@ public class EnvironmentalRenderer extends PointerHandle {
      *                          ConvolutionEffect#getMixedEnvironmentalAudio}. This format must not be changed once it
      *                          is set during the call to this function.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public EnvironmentalRenderer(IPLContext context, Environment environment, IPLRenderingSettings renderingSettings,
-                                 IPLAudioFormat outputFormat) throws ErrorUtil.SteamAudioException {
+                                 IPLAudioFormat outputFormat) throws SteamAudioException {
         super(SteamAudioBridge.envrenderer::__iplCreateEnvironmentalRenderer, context, environment, renderingSettings,
                 outputFormat);
 

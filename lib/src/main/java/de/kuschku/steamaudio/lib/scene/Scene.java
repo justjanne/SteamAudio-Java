@@ -1,12 +1,10 @@
 package de.kuschku.steamaudio.lib.scene;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.compute.ComputeDevice;
 import de.kuschku.steamaudio.lib.context.IPLContext;
 import de.kuschku.steamaudio.lib.simulation.IPLSimulationSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 import org.bridj.Pointer;
 
 import java.util.function.Consumer;
@@ -27,11 +25,11 @@ public class Scene extends PointerHandle {
      * @param progressCallback   Pointer to a function that reports the percentage of this function's work that has been
      *                           completed. May be {@code NULL}.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public Scene(IPLContext context, IPLSimulationSettings simulationSettings, String fileName,
                  ComputeDevice computeDevice, IPLLoadSceneProgressCallback progressCallback)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.scene::__iplLoadFinalizedScene, context, simulationSettings, fileName, computeDevice,
                 progressCallback);
         setOnDelete(SteamAudio.scene::iplDestroyScene);
@@ -50,10 +48,10 @@ public class Scene extends PointerHandle {
      * @param numMaterials       The number of materials that are used to describe the various surfaces in the scene.
      *                           Materials may not be added or removed once the Scene object is created.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public Scene(IPLContext context, ComputeDevice computeDevice, IPLSimulationSettings simulationSettings,
-                 int numMaterials) throws ErrorUtil.SteamAudioException {
+                 int numMaterials) throws SteamAudioException {
         super(SteamAudioBridge.scene::__iplCreateScene, context, computeDevice, simulationSettings, numMaterials);
         setOnDelete(SteamAudio.scene::iplDestroyScene);
     }

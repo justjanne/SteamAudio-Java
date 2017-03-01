@@ -1,8 +1,8 @@
 package de.kuschku.steamaudio.lib.probes;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
+import de.kuschku.steamaudio.lib.util.SteamAudio;
 import de.kuschku.steamaudio.lib.util.PointerHandle;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 
 public class ProbeManager extends PointerHandle {
     /**
@@ -10,9 +10,9 @@ public class ProbeManager extends PointerHandle {
      * typically exported from the game engine to the audio engine via an Environment object. Probe Batch objects can be
      * dynamically added to or removed from a Probe Manager object.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public ProbeManager() throws ErrorUtil.SteamAudioException {
+    public ProbeManager() throws SteamAudioException {
         super(SteamAudio.probes::iplCreateProbeManager);
         setOnDelete(SteamAudio.probes::iplDestroyProbeManager);
     }

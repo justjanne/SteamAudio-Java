@@ -1,13 +1,10 @@
 package de.kuschku.steamaudio.lib.virtualsurround;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioBuffer;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioFormat;
 import de.kuschku.steamaudio.lib.binauralrenderer.BinauralRenderer;
-import de.kuschku.steamaudio.lib.util.AudioEffect;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class VirtualSurroundEffect extends PointerHandle implements AudioEffect {
     /**
@@ -23,10 +20,10 @@ public class VirtualSurroundEffect extends PointerHandle implements AudioEffect 
      *                     IPLAudioBuffer} objects with the same format as specified here. The output format must be
      *                     stereo (2 channels).
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public VirtualSurroundEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.virtualsurround::__iplCreateVirtualSurroundEffect, renderer, inputFormat, outputFormat);
         setOnDelete(SteamAudio.virtualsurround::iplDestroyVirtualSurroundEffect);
     }

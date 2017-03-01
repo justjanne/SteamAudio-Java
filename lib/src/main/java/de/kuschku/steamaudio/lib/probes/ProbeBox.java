@@ -1,12 +1,10 @@
 package de.kuschku.steamaudio.lib.probes;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.geometry.IPLBox;
 import de.kuschku.steamaudio.lib.geometry.IPLSphere;
 import de.kuschku.steamaudio.lib.scene.Scene;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 import org.bridj.Pointer;
 
 import java.nio.ByteBuffer;
@@ -19,9 +17,9 @@ public class ProbeBox extends PointerHandle {
      * @param data Byte array containing the serialized representation of the Probe Box object. Must not be {@code
      *             NULL}.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public ProbeBox(ByteBuffer data) throws ErrorUtil.SteamAudioException {
+    public ProbeBox(ByteBuffer data) throws SteamAudioException {
         super(SteamAudio.probes::iplLoadProbeBox, data, data.capacity());
         setOnDelete(SteamAudio.probes::iplDestroyProbeBox);
     }
@@ -36,10 +34,10 @@ public class ProbeBox extends PointerHandle {
      * @param progressCallback Pointer to a function that reports the percentage of this function's work that has been
      *                         completed. May be {@code NULL}.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public ProbeBox(Scene scene, IPLBox box, IPLProbePlacementParams placementParams,
-                    IPLProbePlacementProgressCallback progressCallback) throws ErrorUtil.SteamAudioException {
+                    IPLProbePlacementProgressCallback progressCallback) throws SteamAudioException {
         super(SteamAudioBridge.probes::__iplCreateProbeBox, scene, box, placementParams, progressCallback);
         setOnDelete(SteamAudio.probes::iplDestroyProbeBox);
     }

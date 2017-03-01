@@ -1,8 +1,8 @@
 package de.kuschku.steamaudio.lib.probes;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
+import de.kuschku.steamaudio.lib.util.SteamAudio;
 import de.kuschku.steamaudio.lib.util.PointerHandle;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 
 import java.nio.ByteBuffer;
 
@@ -15,9 +15,9 @@ public class ProbeBatch extends PointerHandle {
      * @param data Byte array containing the serialized representation of the Probe Batch object. Must not be {@code
      *             NULL}.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public ProbeBatch(ByteBuffer data) throws ErrorUtil.SteamAudioException {
+    public ProbeBatch(ByteBuffer data) throws SteamAudioException {
         super(SteamAudio.probes::iplLoadProbeBatch, data, data.capacity());
         setOnDelete(SteamAudio.probes::iplDestroyProbeBatch);
     }
@@ -31,9 +31,9 @@ public class ProbeBatch extends PointerHandle {
      * probes are part of each Probe Batch.</li><li>The editor saves the Probe Batches along with the rest of the scene
      * data for use at run-time.</li><li>At run-time, Phonon uses the Probe Batches to retrieve baked data.</li></ol>
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public ProbeBatch() throws ErrorUtil.SteamAudioException {
+    public ProbeBatch() throws SteamAudioException {
         super(SteamAudio.probes::iplCreateProbeBatch);
         setOnDelete(SteamAudio.probes::iplDestroyProbeBatch);
     }

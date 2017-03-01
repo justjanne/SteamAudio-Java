@@ -1,10 +1,8 @@
 package de.kuschku.steamaudio.lib.audiobuffer;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.geometry.IPLQuaternion;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class AmbisonicsRotator extends PointerHandle {
     /**
@@ -20,9 +18,9 @@ public class AmbisonicsRotator extends PointerHandle {
      *
      * @param order The order of the Ambisonics data to rotate.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public AmbisonicsRotator(IPLAmbisonicsOrdering order) throws ErrorUtil.SteamAudioException {
+    public AmbisonicsRotator(IPLAmbisonicsOrdering order) throws SteamAudioException {
         super(SteamAudio.audiobuffer::iplCreateAmbisonicsRotator, order);
         setOnDelete(SteamAudio.audiobuffer::iplDestroyAmbisonicsRotator);
     }

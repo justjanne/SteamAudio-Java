@@ -1,15 +1,13 @@
 package de.kuschku.steamaudio.lib.environment;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.compute.ComputeDevice;
 import de.kuschku.steamaudio.lib.context.IPLContext;
 import de.kuschku.steamaudio.lib.probes.ProbeManager;
 import de.kuschku.steamaudio.lib.scene.IPLFinalizeSceneProgressCallback;
 import de.kuschku.steamaudio.lib.scene.Scene;
 import de.kuschku.steamaudio.lib.simulation.IPLSimulationSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class Environment extends PointerHandle {
     /**
@@ -28,10 +26,10 @@ public class Environment extends PointerHandle {
      *                           any other indirect sound propagation.
      * @param probeManager       The Probe Manager object. May be {@code NULL} if not using baked data.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public Environment(IPLContext context, ComputeDevice computeDevice, IPLSimulationSettings simulationSettings,
-                       Scene scene, ProbeManager probeManager) throws ErrorUtil.SteamAudioException {
+                       Scene scene, ProbeManager probeManager) throws SteamAudioException {
         super(SteamAudioBridge.environment::__iplCreateEnvironment, context, computeDevice, simulationSettings, scene,
                 probeManager);
         setOnDelete(SteamAudio.environment::iplDestroyEnvironment);

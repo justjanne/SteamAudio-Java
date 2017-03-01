@@ -1,11 +1,9 @@
 package de.kuschku.steamaudio.lib.binauralrenderer;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.context.IPLContext;
 import de.kuschku.steamaudio.lib.rendersettings.IPLRenderingSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 import java.nio.ByteBuffer;
 
@@ -23,10 +21,10 @@ public class BinauralRenderer extends PointerHandle {
      *                          parameters. These properties must remain constant throughout the lifetime of your
      *                          application.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public BinauralRenderer(IPLContext context, IPLRenderingSettings renderingSettings)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         this(context, renderingSettings, null);
     }
 
@@ -46,10 +44,10 @@ public class BinauralRenderer extends PointerHandle {
      *                          {@code NULL}; Phonon will use its built-in HRTF data. If you want to use customized or
      *                          personalized HRTF data, contact Impulsonic for further information.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public BinauralRenderer(IPLContext context, IPLRenderingSettings renderingSettings, ByteBuffer hrtfData)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.binauralrenderer::__iplCreateBinauralRenderer, context, renderingSettings, hrtfData);
         setOnDelete(SteamAudio.binauralrenderer::iplDestroyBinauralRenderer);
     }

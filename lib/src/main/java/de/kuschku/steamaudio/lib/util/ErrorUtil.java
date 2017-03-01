@@ -1,6 +1,6 @@
 package de.kuschku.steamaudio.lib.util;
 
-import de.kuschku.steamaudio.lib.IPLerror;
+import de.kuschku.steamaudio.lib.error.*;
 
 public class ErrorUtil {
     private ErrorUtil() {
@@ -33,40 +33,4 @@ public class ErrorUtil {
         }
     }
 
-    public static class SteamAudioException extends Exception {
-        public SteamAudioException() {
-            super();
-        }
-
-        public SteamAudioException(String message) {
-            super(message);
-        }
-    }
-
-    public static class UnspecifiedErrorException extends SteamAudioException {
-        public UnspecifiedErrorException() {
-        }
-
-        public UnspecifiedErrorException(String message) {
-            super(message);
-        }
-    }
-
-    public static class OutOfMemoryException extends SteamAudioException {
-        public OutOfMemoryException() {
-        }
-
-        public OutOfMemoryException(String message) {
-            super(message);
-        }
-    }
-
-    public static class ErrorDuringInitializationException extends SteamAudioException {
-        public ErrorDuringInitializationException() {
-        }
-
-        public ErrorDuringInitializationException(String message) {
-            super(message);
-        }
-    }
 }

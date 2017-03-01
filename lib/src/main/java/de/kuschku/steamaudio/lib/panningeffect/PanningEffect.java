@@ -1,13 +1,11 @@
 package de.kuschku.steamaudio.lib.panningeffect;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioBuffer;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioFormat;
 import de.kuschku.steamaudio.lib.binauralrenderer.BinauralRenderer;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class PanningEffect extends PointerHandle {
     /**
@@ -22,11 +20,11 @@ public class PanningEffect extends PointerHandle {
      *                     All subsequent calls to {@link #applyEffect} for this effect object must use {@link
      *                     IPLAudioBuffer} objects with the same f
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.ormat as specified here. Any valid audio format may be
+     * @throws SteamAudioException Describes what kind of error happened in native code.ormat as specified here. Any valid audio format may be
      *                     specified as the output format.
      */
     public PanningEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.panningeffect::__iplCreatePanningEffect, renderer, inputFormat, outputFormat);
         setOnDelete(SteamAudio.panningeffect::iplDestroyPanningEffect);
     }

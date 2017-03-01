@@ -1,13 +1,10 @@
 package de.kuschku.steamaudio.lib.ambisonics;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioBuffer;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioFormat;
 import de.kuschku.steamaudio.lib.binauralrenderer.BinauralRenderer;
-import de.kuschku.steamaudio.lib.util.AudioEffect;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class AmbisonicsBinauralEffect extends PointerHandle implements AudioEffect {
     /**
@@ -24,10 +21,10 @@ public class AmbisonicsBinauralEffect extends PointerHandle implements AudioEffe
      *                     for this effect object must use {@link IPLAudioBuffer} objects with the same format as
      *                     specified here. The output format must be stereo (2 channels).
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public AmbisonicsBinauralEffect(BinauralRenderer renderer, IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.ambisonics::__iplCreateAmbisonicsBinauralEffect, renderer, inputFormat, outputFormat);
         setOnDelete(SteamAudio.ambisonics::iplDestroyAmbisonicsBinauralEffect);
     }

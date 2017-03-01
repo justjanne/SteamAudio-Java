@@ -1,3 +1,16 @@
+plugins {
+    id 'org.ysb33r.gnumake' version '1.0.2'
+    id 'base'
+}
+
 group 'de.kuschku'
 version '1.0-SNAPSHOT'
 
+make {
+    workingDir "native"
+}
+
+clean {
+    delete "${rootDir}/target"
+    delete "${rootDir}/native/build"
+}

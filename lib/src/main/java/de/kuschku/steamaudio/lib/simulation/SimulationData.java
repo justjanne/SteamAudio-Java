@@ -1,17 +1,15 @@
 package de.kuschku.steamaudio.lib.simulation;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.environment.Environment;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
 import de.kuschku.steamaudio.lib.rendersettings.IPLRenderingSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 import org.bridj.Pointer;
 
 public class SimulationData extends PointerHandle {
     public SimulationData(IPLSimulationSettings simulationSettings, IPLRenderingSettings renderingSettings)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.simulation::__iplCreateSimulationData, simulationSettings, renderingSettings);
         setOnDelete(SteamAudio.simulation::iplDestroySimulationData);
     }

@@ -1,14 +1,12 @@
 package de.kuschku.steamaudio.lib.conveffect;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
-import de.kuschku.steamaudio.lib.SteamAudioBridge;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
+import de.kuschku.steamaudio.lib.util.*;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioBuffer;
 import de.kuschku.steamaudio.lib.audiobuffer.IPLAudioFormat;
 import de.kuschku.steamaudio.lib.envrenderer.EnvironmentalRenderer;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
 import de.kuschku.steamaudio.lib.simulation.IPLSimulationType;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
-import de.kuschku.steamaudio.lib.util.PointerHandle;
 
 public class ConvolutionEffect extends PointerHandle {
     private final EnvironmentalRenderer renderer;
@@ -28,11 +26,11 @@ public class ConvolutionEffect extends PointerHandle {
      * @param inputFormat    Format of all audio buffers passed as input to {@link #setDryAudio}.
      * @param outputFormat   Format of all output audio buffers passed to {@link #getWetAudio}.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
     public ConvolutionEffect(EnvironmentalRenderer renderer, String name, IPLSimulationType simulationType,
                              IPLAudioFormat inputFormat, IPLAudioFormat outputFormat)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         super(SteamAudioBridge.conveffect::__iplCreateConvolutionEffect, renderer, name, simulationType, inputFormat,
                 outputFormat);
 

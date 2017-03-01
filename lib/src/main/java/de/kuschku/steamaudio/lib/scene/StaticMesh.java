@@ -1,9 +1,9 @@
 package de.kuschku.steamaudio.lib.scene;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
+import de.kuschku.steamaudio.lib.util.SteamAudio;
 import de.kuschku.steamaudio.lib.geometry.IPLVector3;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
 import de.kuschku.steamaudio.lib.util.PointerHandle;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 import org.bridj.Pointer;
 
 public class StaticMesh extends PointerHandle {
@@ -20,9 +20,9 @@ public class StaticMesh extends PointerHandle {
      * @param numVertices  Number of vertices in the triangle mesh.
      * @param numTriangles Number of triangles in the triangle mesh.
      *
-     * @throws ErrorUtil.SteamAudioException Describes what kind of error happened in native code.
+     * @throws SteamAudioException Describes what kind of error happened in native code.
      */
-    public StaticMesh(Scene scene, int numVertices, int numTriangles) throws ErrorUtil.SteamAudioException {
+    public StaticMesh(Scene scene, int numVertices, int numTriangles) throws SteamAudioException {
         super(SteamAudio.scene::iplCreateStaticMesh, scene, numVertices, numTriangles);
         setOnDelete(SteamAudio.scene::iplDestroyStaticMesh);
 

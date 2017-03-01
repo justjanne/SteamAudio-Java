@@ -7,7 +7,9 @@ local.properties
 .gradle/*
 .idea/*
 gradle.properties
-logs/*
+demo/logs/*
+target/*
+native/build
 scene.obj
 scene.file
 out

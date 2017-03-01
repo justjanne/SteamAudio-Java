@@ -1,6 +1,6 @@
 package org.lwjglb.game;
 
-import de.kuschku.steamaudio.lib.SteamAudio;
+import de.kuschku.steamaudio.lib.util.SteamAudio;
 import de.kuschku.steamaudio.lib.compute.ComputeDevice;
 import de.kuschku.steamaudio.lib.compute.IPLComputeDeviceType;
 import de.kuschku.steamaudio.lib.context.IPLContext;
@@ -9,7 +9,7 @@ import de.kuschku.steamaudio.lib.scene.IPLMaterial;
 import de.kuschku.steamaudio.lib.scene.IPLTriangle;
 import de.kuschku.steamaudio.lib.scene.StaticMesh;
 import de.kuschku.steamaudio.lib.simulation.IPLSimulationSettings;
-import de.kuschku.steamaudio.lib.util.ErrorUtil;
+import de.kuschku.steamaudio.lib.error.SteamAudioException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bridj.Pointer;
@@ -233,7 +233,7 @@ public class DummyGame implements IGameLogic {
 
     private void initAudioEngine(Pointer<IPLTriangle> triangles, int triangleCount, Pointer<IPLVector3> vertices,
                                  int vertexCount, List<IPLMaterial> materials, Pointer<Integer> materialIndices)
-            throws ErrorUtil.SteamAudioException {
+            throws SteamAudioException {
         new Thread(() -> {
             try {
                 audioLogger.info("Initializing Context");

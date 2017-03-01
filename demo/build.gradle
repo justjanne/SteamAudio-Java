@@ -17,10 +17,14 @@ repositories {
     }
 }
 
+compileJava.dependsOn rootProject.make
+
 dependencies {
     testCompile 'junit:junit:4.11'
+    
     compile project(':lib')
-    compile project(':native')
+    
+    compile fileTree(dir: '../target/', include: 'steamaudio-native-*.jar')
 
     compile 'de.jarnbjo:j-ogg-all:1.0.0'
 

@@ -6,6 +6,12 @@ Java Bindings for Steam Audio
 This library supports Windows (i386/x86_64), Linux (i386/x86_64) and macOS. Only
 Linux-x86_64 was tested at this time.
 
+##Build
+
+To build the library, run `./gradlew :lib:jar :make`.
+
+To run the demo, run `./gradlew :demo:run`
+
 ##Documentation
 
 The Javadoc is available here: http://dl.kuschku.de/javadoc/steamaudio-java  
