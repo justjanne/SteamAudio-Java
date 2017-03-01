@@ -12,6 +12,9 @@ To build the library, run `./gradlew :lib:jar :make`.
 
 To run the demo, run `./gradlew :demo:run`
 
+The project can only be built on Linux, but will create libraries for all
+supported systems and architectures.
+
 ##Documentation
 
 The Javadoc is available here: http://dl.kuschku.de/javadoc/steamaudio-java  
