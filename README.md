@@ -1,12 +1,12 @@
 # SteamAudio-Java
 Java Bindings for Steam Audio
 
-##Supported Platforms
+## Supported Platforms
 
 This library supports Windows (i386/x86_64), Linux (i386/x86_64) and macOS. Only
 Linux-x86_64 was tested at this time.
 
-##Build
+## Build
 
 To build the library, run `./gradlew :lib:jar :make`.
 
@@ -15,17 +15,17 @@ To run the demo, run `./gradlew :demo:run`
 The project can only be built on Linux, but will create libraries for all
 supported systems and architectures.
 
-##Documentation
+## Documentation
 
 The Javadoc is available here: http://dl.kuschku.de/javadoc/steamaudio-java  
 A tutorial for the library will be provided at a later time.
 
-##Future Plans
+## Future Plans
 
 Further documentation and integration with Java Sound are planned, as is an
 API-compatible interface to paulscode.
 
-##License
+## License
 
 The native binaries (in the subfolder `natives/` and the gradle subproject
 `:natives`) are under the Valve SDK license, as described in [LICENSE.Valve.md](https://github.com/justjanne/SteamAudio-Java/blob/master/LICENSE.Valve.md).
